@@ -1,4 +1,4 @@
-# monsters by CR
+# monsters by Challenge Rating
 # 'Monster Name': [ "Stats", "Challenge Rating number", Experience points, Armor Class, Hp, Specs, Actions]
 
 Monster_Dictionary = {
@@ -30,6 +30,24 @@ Monster_Dictionary = {
     "Shrieker":["STR 1(-5) DEX 1(-5) CON 10(+0) INT 1(-5) WIS 3(-4) CHA 1(-5)","0","10","5","13","Speed 0ft Condition Immunities Blinded, Deafened, Frightened Senses Blindsight 30ft.(Blind beyond this Radius) passive Perception 6","None"],
     "Spider":["STR 2(-4) DEX 14(+2) CON 8(-1) INT 1(-5) WIS 10(+0) CHA 2(-4)","0","10","12","1","Speed 20ft climb 20ft Skills Stealth +4 Senses Darkvison 30ft. passive Perception 12","Bite 1d20 +4d1"],
     "Vulture":["STR 7(-2) DEX 10(0) CON 13(+1) INT 2(-4) WIS 12(+1) CHA 4(-3)","0","10","10","5","Speed 10ft fly 50ft Skills Perception +3 Senses passive Perception 13","Beak 1d20 +2 1d4"],
-    "Weasel":["STR 3(-4) DEX 16(+3) CON 8(-1) INT 2(-4) WIS 12(+1) CHA 3(-4)","0","10","13","1","Speed 30ft Skills Perception +3, Stealth +5 Senses passive Perception 13","Bite 1d20 +5d1"]
-    "Bandit":["STR 11(+0) DEX 12(+1) CON 12(+1) INT 10(+0) WIS 10(+0) CHA 10(+0)","1/8","25","12","11","Speed 30ft Senses passive Percption 10 Languages any one language (usually common)","1d20+3 1d6+1, 1d20 +3 1d8+1"]
-    
+    "Weasel":["STR 3(-4) DEX 16(+3) CON 8(-1) INT 2(-4) WIS 12(+1) CHA 3(-4)","0","10","13","1","Speed 30ft Skills Perception +3, Stealth +5 Senses passive Perception 13","Bite 1d20 +5d1"],
+    "Bandit":["STR 11(+0) DEX 12(+1) CON 12(+1) INT 10(+0) WIS 10(+0) CHA 10(+0)","1/8","25","12","11","Speed 30ft Senses passive Percption 10 Languages any one language (usually common)","1d20+3 1d6+1, 1d20 +3 1d8+1"],
+    "Blood Hawk":["STR 6(-2) DEX 14(+2) CON 10(+0) INT 3(-4) WIS 14(+2) CHA 5(-3)","1/8","25","12","7","Speed 10ft fly 60ft Skills Perception +4 Senses passive Perception 14","Beak 1d20+4 1d4+2"],
+    "Camel":["STR 16(+3) DEX 8(-1) CON 14(+2) INT 2(-4) WIS 8(-1) CHA 5(-3)","1/8","25","Speed 50ft Senses passive Perception 9","Bite 1d20+5 1d4"],
+    "Cultist":["STR 11(+0) DEX 12(+1) CON 10(+0) INT 10(+0) WIS 11(+0) CHA 10(+0)","1/8","25","12","9","Speed 30ft Skills Deception +2 Religion +2 Senses passive Perception 10 Languages any one languages(usually common)","1d20+3 1d6+1"],
+    "Diseaesd Giant Rat":["STR 7(-2) DEX 15(+2) CON 11(+0) INT 2(-4) WIS 10(+0) CHA 4(-3)","1/8","25","12","7","Speed 30ft Sense Darkvision 60ft passive Perception 10","1d20+4 1d4+2"],
+    "Flying Snake":["STR 4(-3) DEX 18(+4) CON 11(+0) INT 2(-4) WIS 12 (+1) CHA 5(-3)","1/8","25","14","5","Speed 30ft fly 60ft swim 30ft Senses Blindsight 10ft passive Perception 11","Bite 1d20+6 1"],
+    "Giant Crab":["STR 13(+1) DEX 15(+2) CON 11(+0) INT 1(-5) WIS 9(-1) CHA 3(-4)","1/8","25","15","13","Speed 30ft swim 30ft Skills Stealth +4 Senses Blindsight 30ft passive Perception 9","Claw 1d20+3 1d6+1"],
+    "Giant Rat":["STR 7(-2) DEX 15(+2) CON 11(+0) INT 2(-4) WIS 10(+0) CHA 4(-3)","1/8","25","12","7","Speed 30ft Senses Darkvision 60ft passive Perception 10","Bite 1d20+4 1d4+2"],
+    "Giant Weasel":["STR 11 (+0) DEX 16(+3) CON +10(+0) INT 4(-3) 12(+1) CHA 5(-3)","1/8","25","13","9","Speed 40ft Skills Perception +3 Stealth +5 Senses Darkvision 60ft passive Perception 13","Bite 1d20+5 1d4+3"],
+    "Guard":["STR 13(+1) DEX 12(+1) CON 12(+1) INT 10(+1) WIS 11(+0) CHA 10(+0)","1/8","25","16","11","Speed 30ft Skills Perception +2 Senses passive Perception 12 Languages any 0n language (usually common)","One handed 1d20 +3 1d6+1 Two haned 1d20+3 1d8+1"],
+    "Kobold":["STR 7(-2) DEX 15(+2) CON 9(-1) INT 8(-1) WIS 7(-2) CHA 8(-1)","1/8","25","12","5","Speed 30ft Senses Darkvision 60ft passive Perception 8 Languages Common Draconic","1d20+4 1d4+2 1d20+4 1d4+2"],
+    "Mastiff":["STR 13(+1) DEX 14(+2) CON 12(+1) INT 3(-4) WIS 12(+1) CHA 7(-2)","1/8","25","12","5","Speed 40ft Skills Perception +3 Senses passive Perception 13","Bite 1d20+3 1d6+1"],
+    "Merfolk":["STR 10(+0) 13(+1) CON 12(+1) INT 11(+0) WIS 11(+0) CHA 12(+1)","1/8","25","11","11","Speed 10ft swim 40ft Skills Perception +2 Senses passive Perception 12 Languages Aquan, Common","1d20+2 1d6"],
+    "Mule":["STR 14(+2) DEX 10(+0) CON 13(+1) INT 2(-4) WIS 10(+0) CHA 5(-3)","1/8","25","10","11","Speed 40ft Senses passive Perception 10","Hooves 1d20+4 1d4+2"],
+    "Noble":["STR 11(+0) DEX 12(+1) CON 11(+0) INT 12(+1) WIS 14(+2) CHA 16(+3)","Speed 30ft Skills Deception+5 Insight +4 Persuasion +5 Senses passive Perceptrion 12 Languages any two languages","1d20+3 1d8+1"],
+    "Poisonous Snake":["STR 2(-4) DEX 16(+3) CON 11(+0) INT 1(-5) WIS 10(+0) CHA 3(-4)","1/8","25","13","2","Speed 30ft swim 30ft Senses Blindsight 10ft passive Perception 10","Bite 1d20+5 1"],
+    "Pony":["STR 15(+2) DEX 10(+0) CON 13(+1) INT 2(-4) WIS 11(+0) CHA 7(-2)","1/8","25","10","11","Speed 40ft Senses Perception 10","Hooves 1d20+4 2d4+4"],
+    "Stirge":["STR 4(-3) DEX 16(+3) CON 11(+0) INT 2(-4) WIS 8(-1) CHA 6(-2)","1/8","25","14","2","Speed 10ft fly 40ft Senses Darkvision 60ft passive Perception 9","Blood Drain 1d20+5 1d4+3"],
+    "Tribal Warrior":["STR 13(+1) DEX 11(+0) CON 12(+1) INT 8(-1) WIS 11(+0) CHA 8(-1)","1/8","25","12","11","Speed 30ft Senses passive Perception 10 Lanuages any on languages","One Handed 1d20 +3 1d6+1 Two Handed 1d20+3 1d8+1"]
+    }
