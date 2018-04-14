@@ -1,4 +1,4 @@
-# monsters by CR
+# monsters by Challenge Rating
 # 'Monster Name': [ "Stats", "Challenge Rating number", Experience points, Armor Class, Hp, Specs, Actions]
 
 Monster_Dictionary = {
@@ -30,6 +30,6 @@ Monster_Dictionary = {
     "Shrieker":["STR 1(-5) DEX 1(-5) CON 10(+0) INT 1(-5) WIS 3(-4) CHA 1(-5)","0","10","5","13","Speed 0ft Condition Immunities Blinded, Deafened, Frightened Senses Blindsight 30ft.(Blind beyond this Radius) passive Perception 6","None"],
     "Spider":["STR 2(-4) DEX 14(+2) CON 8(-1) INT 1(-5) WIS 10(+0) CHA 2(-4)","0","10","12","1","Speed 20ft climb 20ft Skills Stealth +4 Senses Darkvison 30ft. passive Perception 12","Bite 1d20 +4d1"],
     "Vulture":["STR 7(-2) DEX 10(0) CON 13(+1) INT 2(-4) WIS 12(+1) CHA 4(-3)","0","10","10","5","Speed 10ft fly 50ft Skills Perception +3 Senses passive Perception 13","Beak 1d20 +2 1d4"],
-    "Weasel":["STR 3(-4) DEX 16(+3) CON 8(-1) INT 2(-4) WIS 12(+1) CHA 3(-4)","0","10","13","1","Speed 30ft Skills Perception +3, Stealth +5 Senses passive Perception 13","Bite 1d20 +5d1"]
+    "Weasel":["STR 3(-4) DEX 16(+3) CON 8(-1) INT 2(-4) WIS 12(+1) CHA 3(-4)","0","10","13","1","Speed 30ft Skills Perception +3, Stealth +5 Senses passive Perception 13","Bite 1d20 +5d1"],
     "Bandit":["STR 11(+0) DEX 12(+1) CON 12(+1) INT 10(+0) WIS 10(+0) CHA 10(+0)","1/8","25","12","11","Speed 30ft Senses passive Percption 10 Languages any one language (usually common)","1d20+3 1d6+1, 1d20 +3 1d8+1"]
-    
+    }
