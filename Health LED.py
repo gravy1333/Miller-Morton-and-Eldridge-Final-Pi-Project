@@ -13,26 +13,40 @@ LED={'r1':GPIO.PWM(LED_Pins[0], 50), 'g1':GPIO.PWM(LED_Pins[1], 50), \
        'g4':GPIO.PWM(LED_Pins[10], 50), 'b4':GPIO.PWM(LED_Pins[11], 50), \
        'r5':GPIO.PWM(LED_Pins[12], 50), 'g5':GPIO.PWM(LED_Pins[13], 50), \
        'b5':GPIO.PWM(LED_Pins[14], 50)}
-LED['r1'].start(0)
-LED['b1'].start(0)
+
+for element in LED:
+    LED[element].start(0)
+
 try:
     #100% Green 50% Yellow 0% Red
     while 1:
-        for dc in range(0, 101, 5):
-            LED['r1'].ChangeDutyCycle(dc)
-            time.sleep(0.1)
-        for dc in range(100, -1, -5):
-            LED['r1'].ChangeDutyCycle(dc)
-            time.sleep(0.1)
-        for dc in range(0, 101, 5):
-            LED['b1'].ChangeDutyCycle(dc)
-            time.sleep(0.1)
-        for dc in range(100, -1, -5):
-            LED['b1'].ChangeDutyCycle(dc)
-            time.sleep(0.1)
-                
+        Health = int(raw_input('Input Health(max 100): '))
+        if Health == 100:
+            LED['r1'].ChangeDutyCycle(0)
+            LED['g1'].ChangeDutyCycle(100)
+            LED['b1'].ChangeDutyCycle(0)
+        elif Health > 50:
+            LED['r1'].ChangeDutyCycle((100-Health)*2)
+            LED['g1'].ChangeDutyCycle(100-((80/50)*(100-Health)))
+            LED['b1'].ChangeDutyCycle(0)
+        elif Health == 50:
+            LED['r1'].ChangeDutyCycle(100)
+            LED['g1'].ChangeDutyCycle(20)
+            LED['b1'].ChangeDutyCycle(0)
+        elif Health > 25:
+            LED['r1'].ChangeDutyCycle(100)
+            LED['g1'].ChangeDutyCycle(20-((20/25)*(50-Health)))
+            LED['b1'].ChangeDutyCycle(0)
+        elif Health == 25:
+            LED['r1'].ChangeDutyCycle(100)
+            LED['g1'].ChangeDutyCycle(0)
+            LED['b1'].ChangeDutyCycle(0)
+        elif Health == 0:
+            LED['r1'].ChangeDutyCycle(0)
+            LED['g1'].ChangeDutyCycle(0)
+            LED['b1'].ChangeDutyCycle(0)
 except KeyboardInterrupt:
     pass
-LED['r1'].stop()
-LED['b1'].stop()
+for element in LED:
+    LED[element].stop()
 GPIO.cleanup()
