@@ -1,63 +1,91 @@
 from Tkinter import *
-import dice_rolls as DRs
+from random import randint
 
 class Screen(Frame):
     def __init__(self, master):
         Frame.__init__(self, master)
+        for i in range(8):
+            master.columnconfigure(i, weight=1)
+        master.rowconfigure(0, weight=3)
+        master.rowconfigure(4, weight=2)
+        master.rowconfigure(6, weight=0)
+        master.rowconfigure(7, weight=1)
+        self.grid(sticky='news')
 
     def setGUI(self):
-        diceVals = [None, 4, 6, 8, 10, 12, 20]
         #upper part
-        Screen.PLH = Label(self, text="PLayer Health").grid(row=0, column=0, rowspan=3, columnspan=3)
-        Screen.stats = Label(self, text="Stats").grid(row=0, column=4, rowspan=3, columnspan=3)
-        Screen.MA = Label(self, text="Moster Actions").grid(row=4, column=0, rowspan=2, columnspan=3)
-        Screen.PLA = Label(self, text="Player actions").grid(row=4, column=4, rowspan=2, columnspan=3)
-        Screen.player_input = Entry(self, bg='white').grid(row=6, column=0, columnspan=7)
-        Screen.player_input.bind("<Return>", self.text_process())
+        self.PLH = Label(window, text='PLayer Health')\
+                     .grid(row=0, column=0, rowspan=3, columnspan=4, sticky='news')
+        self.stats = Label(window, text='Stats')\
+                       .grid(row=0, column=4, rowspan=3, columnspan=4, sticky='news')
+        self.MA = Label(window, text='Moster Actions')\
+                    .grid(row=4, column=0, rowspan=2, columnspan=4, sticky='news')
+        self.PLA = Label(window, text='Player actions')\
+                     .grid(row=4, column=4, rowspan=2, columnspan=4, sticky='news')
+        
+        self.player_input = Entry(window, bg='white')
+        self.player_input.bind('<Return>', self.text_process())
+        self.player_input.grid(row=6, column=0, columnspan=8, sticky='we')
+        self.player_input.focus()
         
         #dice buttons
-        Screen.d4 = Button(self, bg='white', text="d4", width=1)
-        Screen.d4.grid(row=7, column=0)
+        self.RDis = Label(window, text='0', bg='white')
+        self.RDis.grid(row=7, column=7, sticky='news')
+        
+        self.d4 = Button(window, bg='white', text='d4', width=1)
+        self.d4.grid(row=7, column=0, sticky='news')
     
-        Screen.d6 = Button(self, bg='white', text="d6", width=1)
-        Screen.d6.grid(row=7, column=1)
+        self.d6 = Button(window, bg='white', text='d6', width=1)
+        self.d6.grid(row=7, column=1, sticky='news')
         
-        Screen.d8 = Button(self, bg='white', text="d8", width=1)
-        Screen.d8.grid(row=7, column=2)
+        self.d8 = Button(window, bg='white', text='d8', width=1)
+        self.d8.grid(row=7, column=2, sticky='news')
         
-        Screen.d10 = Button(self, bg='white', text="d10", width=1)
-        Screen.d10.grid(row=7, column=3)
+        self.d10 = Button(window, bg='white', text='d10', width=1)
+        self.d10.grid(row=7, column=3, sticky='news')
         
-        Screen.d12 = Button(self, bg='white', text="d12", width=1)
-        Screen.d12.grid(row=7, column=4)
+        self.d12 = Button(window, bg='white', text='d12', width=1)
+        self.d12.grid(row=7, column=4, sticky='news')
         
-        Screen.d20 = Button(self, bg='white', text="d20", width=1)
-        Screen.d20.grid(row=7, column=5)
+        self.d20 = Button(window, bg='white', text='d20', width=1)
+        self.d20.grid(row=7, column=5, sticky='news')
 
-        Screen.dRand = Button(self, bg='white', text="Random\nDice", width=1)
-        Screen.dRand.grid(row=7, column=6)
-        
-        Screen.DR = Lable(self, bg='white', text='0').grid(row=7, column=7)
-        for b in range(1, 7):
-            Screen.bind('<{}>'.format(b), DRs._{}sided_dice_roll().format(diceVals[b])
+        self.dRand = Button(window, bg='white', text='Random\nDice', \
+                              width=1, command=self.randRoll)
+        self.dRand.grid(row=7, column=6, sticky='news')
 
-        Screen.bind('<7>', self.randRoll)
+        self.d4['command'] = lambda val = 4 : self.roll(4)
+        self.d6['command'] = lambda val = 6 :self.roll(6)
+        self.d8['command'] = lambda val = 8 : self.roll(8)
+        self.d10['command'] = lambda val = 10 : self.roll(10)
+        self.d12['command'] = lambda val = 12 : self.roll(12)
+        self.d20['command'] = lambda val = 20 : self.roll(20)
+        self.dRand.bind('<7>', self.randRoll())
         
+    def text_process(self):
+        pass
+
     def play(self):
         self.setGUI()
-        #
-    
-    def randRoll(self):
-        die = DRs.randomDie()
-        return DRs._{}sided_dice_roll().format(diceVals[die])
 
-    
+    def roll(self, val):
+        roll = randint(1, val)
+        self.RDis['text'] = str(roll)
+        
+        
+    def randRoll(self):
+        die = diceVals[randint(1, 6)]
+        self.roll(die)
+
+diceVals = [0, 4, 6, 8, 10, 12, 20]
 WIDTH = 800
 HEIGHT = 600
 
 window = Tk()
-window.title("DnD Yeah boooooooooooyyyyyyyyyyy")
+window.title('DnD Yeah boooooooooooyyyyyyyyyyy')
+window.geometry('{}x{}'.format(WIDTH, HEIGHT))
 
 GW = Screen(window)
 GW.play()
+
 window.mainloop()
