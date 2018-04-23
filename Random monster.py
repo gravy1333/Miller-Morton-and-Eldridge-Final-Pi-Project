@@ -3,7 +3,7 @@ from monsters import *
 import random
 from random import randint
 
-party_size = input("How big is your party")
+party_size = input("How big is your party: ")
 print "Monster's sheet reference [ Stats, Challenge Rating number, Experience points, Armor Class, Hp, Specs, Actions]"
 def monster_spawn(party_size):
     number_of_monsters = 0
