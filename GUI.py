@@ -20,28 +20,47 @@ class Screen(Frame):
         
         self.PL1N = Label(self.PLH, text='player 1', bg='white', relief='sunken')
         self.PL1N.grid(row=0, column=0, sticky='news')
+
         self.PL1L = Label(self.PLH, text='Awaiting min-max', fg='green', bg='white', relief='sunken')
+
+        self.PL1L = Label(self.PLH, text='001/001', fg='green', bg='white')
         self.PL1L.grid(row=0, column=1, sticky='news')
 
         self.PL2N = Label(self.PLH, text='player 2', bg='white', relief='sunken')
         self.PL2N.grid(row=1, column=0, sticky='news')
+
         self.PL2L = Label(self.PLH, text='Awaiting min-max', fg='green', bg='white', relief='sunken')
         self.PL2L.grid(row=1, column=1, sticky='news')
 
+        self.PL1L = Label(self.PLH, text='001/001', fg='green', bg='white')
+        self.PL1L.grid(row=1, column=1, sticky='news')
+
         self.PL3N = Label(self.PLH, text='player 3', bg='white', relief='sunken')
         self.PL3N.grid(row=2, column=0, sticky='news')
+
         self.PL3L = Label(self.PLH, text='Awaiting min-max', fg='green', bg='white', relief='sunken')
         self.PL3L.grid(row=2, column=1, sticky='news')
 
+        self.PL1L = Label(self.PLH, text='001/001', fg='green', bg='white')
+        self.PL1L.grid(row=2, column=1, sticky='news')
+
         self.PL4N = Label(self.PLH, text='player 4', bg='white', relief='sunken')
         self.PL4N.grid(row=3, column=0, sticky='news')
+
         self.PL4L = Label(self.PLH, text='Awaiting min-max', fg='green', bg='white', relief='sunken')
         self.PL4L.grid(row=3, column=1, sticky='news')
 
+        self.PL1L = Label(self.PLH, text='001/001', fg='green', bg='white')
+        self.PL1L.grid(row=3, column=1, sticky='news')
+
         self.PL5N = Label(self.PLH, text='player 5', bg='white', relief='sunken')
         self.PL5N.grid(row=4, column=0, sticky='news')
+
         self.PL5L = Label(self.PLH, text='Awaiting min-max', fg='green', bg='white', relief='sunken')
         self.PL5L.grid(row=4, column=1, sticky='news')
+
+        self.PL1L = Label(self.PLH, text='001/001', fg='green', bg='white')
+        self.PL1L.grid(row=4, column=1, sticky='news')
 
         for r in range(5):
             self.PLH.rowconfigure(r, weight=1)
@@ -142,10 +161,6 @@ class Screen(Frame):
         die = diceVals[randint(1, 6)]
         self.roll(die)
 
-    def changePlayerHealth(self, player, val):
-        if (player == 1):
-            pass
-
 
 diceVals = [0, 4, 6, 8, 10, 12, 20]
 WIDTH = 800
@@ -159,7 +174,3 @@ GW = Screen(window)
 GW.play()
 
 window.mainloop()
-
-
-    
-    
