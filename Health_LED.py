@@ -1,12 +1,10 @@
 import time
 import RPi.GPIO as GPIO
 LED_Pins=[27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 13, 12, 6]
-button = 4
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(LED_Pins, GPIO.OUT)
-GPIO.setup(button, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 LED={'r1':GPIO.PWM(LED_Pins[0], 50), 'g1':GPIO.PWM(LED_Pins[1], 50), \
        'b1':GPIO.PWM(LED_Pins[2], 50), 'r2':GPIO.PWM(LED_Pins[3], 50), \
        'g2':GPIO.PWM(LED_Pins[4], 50), 'b2':GPIO.PWM(LED_Pins[5], 50), \
@@ -75,17 +73,11 @@ def HealthDisplay(playerNum, healthChange):
         LED[PlayersLED[player][2]].ChangeDutyCycle(0)
 
 try:
-    #100% Green 50% Yellow 0% Red
+    # 100% Green 50% Yellow 0% Red
     while True:
         action = raw_input('Input player number and amount to change haelth(ie 1 -25): ')
         words = action.split()
         HealthDisplay(int(words[0]), float(words[1]))
-        if (GPIO.input(button)):
-            HealthDisplay(1, 100)
-            HealthDisplay(2, 100)
-            HealthDisplay(3, 100)
-            HealthDisplay(4, 100)
-            HealthDisplay(5, 100)
 
 except KeyboardInterrupt:
     for element in LED:
