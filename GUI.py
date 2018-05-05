@@ -101,6 +101,21 @@ class Screen(Frame):
         self.dRand.bind('<7>', self.randRoll())
         
     def text_process(self):
+        action = Screen.player_input.get()
+        action = action.lower()
+        words = action.split
+        # the text box understands three word commands
+        if (len(words) == 3):
+            verb = words[0]
+            noun = words[1]
+            noun2 = words[2]
+        elif (len(words == 4):
+            verb = words[0]
+            noun = words[1]
+            noun2 = words[2]
+            number = words[3]
+            
+            
         pass
 
     def play(self):
