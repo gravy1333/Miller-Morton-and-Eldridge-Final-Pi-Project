@@ -108,12 +108,19 @@ class Screen(Frame):
         if (len(words) == 3):
             verb = words[0]
             noun = words[1]
-            noun2 = words[2]
+            number = words[2]
+            response = " I don't understand try again."
+            if (verb == attack):
+                pass
+                
+            
         elif (len(words) == 4):
             verb = words[0]
             noun = words[1]
             noun2 = words[2]
             number = words[3]
+            if (verb == set):
+                pass
         elif (len(words) == 5):
             verb = words[0]
             noun = words[1]
