@@ -20,14 +20,21 @@ P3LED = ['r3', 'g3', 'b3']
 P4LED = ['r4', 'g4', 'b4']
 P5LED = ['r5', 'g5', 'b5']
 
-P1Health = 100.0
-P2Health = 100.0
-P3Health = 100.0
-P4Health = 100.0
-P5Health = 100.0
+P1MaxHealth = 10.0
+P2MaxHealth = 10.0
+P3MaxHealth = 10.0
+P4MaxHealth = 10.0
+P5MaxHealth = 10.0
+
+P1Health = 10.0
+P2Health = 10.0
+P3Health = 10.0
+P4Health = 10.0
+P5Health = 10.0
 
 PlayersLED = [P1LED, P2LED, P3LED, P4LED, P5LED]
 PlayersHealth = [P1Health, P2Health, P3Health, P4Health, P5Health]
+PlayersMaxHealth = [P1MaxHealth, P2MaxHealth, P3MaxHealth, P4MaxHealth, P5MaxHealth]
 
 for element in LED:
     LED[element].start(0)
@@ -35,42 +42,52 @@ for element in LED:
 def HealthDisplay(playerNum, healthChange):
     player = playerNum - 1
     Health = PlayersHealth[player] + healthChange
-
-    if (Health > 100):
-        Health = 100
-    elif(Health < 0):
+    if (Health > PlayerMaxHealth[player]):
+        Health = PlayerMaxHealth[player]
+    elif (Health < 0):
         Health = 0
+
+    HealthPercent = Health / PlayerMaxHealth[player] * 100
         
     PlayersHealth[player] = Health
     
-    if Health == 100:
+    if HealthPercent == 100:
+        # 100% = green
         LED[PlayersLED[player][0]].ChangeDutyCycle(0)
         LED[PlayersLED[player][1]].ChangeDutyCycle(100)
         LED[PlayersLED[player][2]].ChangeDutyCycle(0)
-    elif Health > 50:
+    elif HealthPercent > 50:
+        # transition from green to yellow
         LED[PlayersLED[player][0]].ChangeDutyCycle((100-Health)*2)
         LED[PlayersLED[player][1]].ChangeDutyCycle(100-((80/50.0)*(100.0-Health)))
         LED[PlayersLED[player][2]].ChangeDutyCycle(0)
-    elif Health == 50:
+    elif HealthPercent == 50:
+        # 50% = yellow
         LED[PlayersLED[player][0]].ChangeDutyCycle(100)
         LED[PlayersLED[player][1]].ChangeDutyCycle(20)
         LED[PlayersLED[player][2]].ChangeDutyCycle(0)
-    elif Health > 25:
+    elif HealthPercent > 25:
+        #transistion from yellow to red
         LED[PlayersLED[player][0]].ChangeDutyCycle(100)
         LED[PlayersLED[player][1]].ChangeDutyCycle(20-((20/25.0)*(50.0-Health)))
         LED[PlayersLED[player][2]].ChangeDutyCycle(0)
-    elif Health == 25:
+    elif HealthPercent == 25:
+        # 25% = red
         LED[PlayersLED[player][0]].ChangeDutyCycle(100)
         LED[PlayersLED[player][1]].ChangeDutyCycle(0)
         LED[PlayersLED[player][2]].ChangeDutyCycle(0)
-    elif Health > 0:
+    elif HealthPercent > 0:
+        # transition from red to off
         LED[PlayersLED[player][0]].ChangeDutyCycle(100-4*(25-Health))
         LED[PlayersLED[player][1]].ChangeDutyCycle(0)
         LED[PlayersLED[player][2]].ChangeDutyCycle(0)
-    elif Health == 0:
+    elif HealthPercent == 0:
+        # 0% = off
         LED[PlayersLED[player][0]].ChangeDutyCycle(0)
         LED[PlayersLED[player][1]].ChangeDutyCycle(0)
         LED[PlayersLED[player][2]].ChangeDutyCycle(0)
+
+    
 
 try:
     # 100% Green 50% Yellow 0% Red
