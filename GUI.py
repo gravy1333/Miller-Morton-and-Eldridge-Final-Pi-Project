@@ -1,6 +1,6 @@
 from Tkinter import *
 from random import randint
-from Health_LED import *
+#from Health_LED import *
 
 class Screen(Frame):
     def __init__(self, master):
@@ -20,28 +20,28 @@ class Screen(Frame):
         
         self.PL1N = Label(self.PLH, text='player 1', bg='white')
         self.PL1N.grid(row=0, column=0, sticky='news')
-        self.PL1L = Label(self.PLH, text='001/001', fg='green', bg='white')
+        self.PL1L = Label(self.PLH, text='Awaiting min-max', fg='green', bg='white')
         self.PL1L.grid(row=0, column=1, sticky='news')
 
         self.PL2N = Label(self.PLH, text='player 2', bg='white')
         self.PL2N.grid(row=1, column=0, sticky='news')
-        self.PL1L = Label(self.PLH, text='001/001', fg='green', bg='white')
-        self.PL1L.grid(row=1, column=1, sticky='news')
+        self.PL2L = Label(self.PLH, text='Awaiting min-max', fg='green', bg='white')
+        self.PL2L.grid(row=1, column=1, sticky='news')
 
         self.PL3N = Label(self.PLH, text='player 3', bg='white')
         self.PL3N.grid(row=2, column=0, sticky='news')
-        self.PL1L = Label(self.PLH, text='001/001', fg='green', bg='white')
-        self.PL1L.grid(row=2, column=1, sticky='news')
+        self.PL3L = Label(self.PLH, text='Awaiting min-max', fg='green', bg='white')
+        self.PL3L.grid(row=2, column=1, sticky='news')
 
         self.PL4N = Label(self.PLH, text='player 4', bg='white')
         self.PL4N.grid(row=3, column=0, sticky='news')
-        self.PL1L = Label(self.PLH, text='001/001', fg='green', bg='white')
-        self.PL1L.grid(row=3, column=1, sticky='news')
+        self.PL4L = Label(self.PLH, text='Awaiting min-max', fg='green', bg='white')
+        self.PL4L.grid(row=3, column=1, sticky='news')
 
         self.PL5N = Label(self.PLH, text='player 5', bg='white')
         self.PL5N.grid(row=4, column=0, sticky='news')
-        self.PL1L = Label(self.PLH, text='001/001', fg='green', bg='white')
-        self.PL1L.grid(row=4, column=1, sticky='news')
+        self.PL5L = Label(self.PLH, text='Awaiting min-max', fg='green', bg='white')
+        self.PL5L.grid(row=4, column=1, sticky='news')
 
         for r in range(5):
             self.PLH.rowconfigure(r, weight=2)
@@ -115,6 +115,50 @@ class Screen(Frame):
         die = diceVals[randint(1, 6)]
         self.roll(die)
 
+    def changePlayerHealth(player, val):
+        if (player == 1):
+            Screen.PL1H['text'] = ""
+        
+
+class Player():
+    def __init__(self, maxH):
+        #temp is here to fix player instanciation issue
+        self.tempH = maxH
+        self.currentH = maxH
+        self.maxH = maxH
+
+    @property
+    def maxH(self):
+        return self._maxH
+
+    @maxH.setter
+    def maxH(self, val):
+        if (val > 0):
+            self._maxH = val
+
+    @property
+    def currentH(self):
+        return self._currentH
+
+    @currentH.setter
+    def currentH(self, val):
+        if (self.tempH + val < 0):
+            self._currentH = 0
+            self.tempH = 0
+
+        elif (self.tempH + val >= self.maxH):
+            self._currentH = self.maxH
+            self.tempH = self.maxH
+        else:
+            self._currentH += val
+            self.tempH += val
+
+    def getHealthPercent(self):
+        return int((float(self.currentH) / self.maxH) * 100)
+
+    def __str__(self):
+        return "{} / {}".format(self.currentH, self.maxH)
+
 diceVals = [0, 4, 6, 8, 10, 12, 20]
 WIDTH = 800
 HEIGHT = 600
@@ -127,3 +171,7 @@ GW = Screen(window)
 GW.play()
 
 window.mainloop()
+
+
+    
+    
