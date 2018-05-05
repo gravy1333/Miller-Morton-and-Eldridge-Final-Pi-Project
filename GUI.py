@@ -1,6 +1,6 @@
 from Tkinter import *
 from random import randint
-from Health_LED import *
+#from Health_LED import *
 
 class Screen(Frame):
     def __init__(self, master):
@@ -113,7 +113,6 @@ class Screen(Frame):
             if (verb == attack):
                 pass
                 
-            
         elif (len(words) == 4):
             verb = words[0]
             noun = words[1]
@@ -121,6 +120,7 @@ class Screen(Frame):
             number = words[3]
             if (verb == set):
                 pass
+            
         elif (len(words) == 5):
             verb = words[0]
             noun = words[1]
@@ -136,7 +136,6 @@ class Screen(Frame):
     def roll(self, val):
         roll = randint(1, val)
         self.RDis['text'] = [str(roll), "0" + str(roll)][roll < 10]
-        
         
     def randRoll(self):
         die = diceVals[randint(1, 6)]
