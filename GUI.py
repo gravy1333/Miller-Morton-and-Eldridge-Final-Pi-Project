@@ -1,6 +1,6 @@
 from Tkinter import *
 from random import randint
-from Health_LED import *
+#from Health_LED import *
 
 class Screen(Frame):
     def __init__(self, master):
@@ -101,22 +101,27 @@ class Screen(Frame):
         self.dRand.bind('<7>', self.randRoll())
         
     def text_process(self):
-        action = Screen.player_input.get()
+        action = self.player_input.get()
         action = action.lower()
-        words = action.split
+        words = action.split()
         # the text box understands three word commands
         if (len(words) == 3):
             verb = words[0]
             noun = words[1]
             noun2 = words[2]
-        elif (len(words == 4):
+        elif (len(words) == 4):
             verb = words[0]
             noun = words[1]
             noun2 = words[2]
             number = words[3]
-            
-            
-        pass
+        elif (len(words) == 5):
+            verb = words[0]
+            noun = words[1]
+            noun2 = words[2]
+            number = words[3]
+            number2 = words[4]
+        else:
+            pass
 
     def play(self):
         self.setGUI()
