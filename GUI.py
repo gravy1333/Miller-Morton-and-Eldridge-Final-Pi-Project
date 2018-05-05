@@ -48,16 +48,16 @@ class Screen(Frame):
         self.PLH.columnconfigure(1, weight=1)
 
         #player actions
-        self.PLA = Label(window, text='Player actions')\
-                    .grid(row=4, column=0, rowspan=2, columnspan=4, sticky='news')
+        self.PLA = Label(window, text='Player actions', anchor='nw', relief='sunken')
+        self.PLA.grid(row=4, column=0, rowspan=2, columnspan=4, sticky='news')
 
         #monster stats
-        self.stats = Label(window, text='Stats')\
-                       .grid(row=0, column=4, rowspan=3, columnspan=4, sticky='news')
+        self.stats = Label(window, text='Awaiting Battle', anchor='nw', relief='sunken')
+        self.stats.grid(row=0, column=4, rowspan=3, columnspan=4, sticky='news')
 
         #monster actions
-        self.MA = Label(window, text='Moster Actions')\
-                     .grid(row=4, column=4, rowspan=2, columnspan=4, sticky='news')
+        self.MA = Label(window, text='Moster Actions', anchor='nw', relief='sunken')
+        self.MA.grid(row=4, column=4, rowspan=2, columnspan=4, sticky='news')
 
         #input bar
         self.player_input = Entry(window, bg='white')
