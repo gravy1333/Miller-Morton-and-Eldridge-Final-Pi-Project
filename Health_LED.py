@@ -1,5 +1,5 @@
 import time
-import RPi.GPIO as GPIO
+#import RPi.GPIO as GPIO
 LED_Pins=[27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 13, 12, 6]
 
 GPIO.setwarnings(False)
@@ -38,6 +38,7 @@ PlayersMaxHealth = [P1MaxHealth, P2MaxHealth, P3MaxHealth, P4MaxHealth, P5MaxHea
 
 for element in LED:
     LED[element].start(0)
+    
 class Player():
     def __init__(self, maxH):
         #temp is here to fix player instanciation issue
