@@ -1,14 +1,7 @@
 from Tkinter import *
 from random import randint
 #from Health_LED import *
-<<<<<<< HEAD
-=======
 from player import *
-
-
-
-
->>>>>>> 6bc632522d3f6c143e719fe05f5f09a6298029bb
 
 class Screen(Frame):
     def __init__(self, master):
@@ -33,23 +26,23 @@ class Screen(Frame):
 
         self.PL2N = Label(self.PLH, text='player 2', bg='white')
         self.PL2N.grid(row=1, column=0, sticky='news')
-        self.PL1L = Label(self.PLH, text='001/001', fg='green', bg='white')
-        self.PL1L.grid(row=1, column=1, sticky='news')
+        self.PL2L = Label(self.PLH, text='001/001', fg='green', bg='white')
+        self.PL2L.grid(row=1, column=1, sticky='news')
 
         self.PL3N = Label(self.PLH, text='player 3', bg='white')
         self.PL3N.grid(row=2, column=0, sticky='news')
-        self.PL1L = Label(self.PLH, text='001/001', fg='green', bg='white')
-        self.PL1L.grid(row=2, column=1, sticky='news')
+        self.PL3L = Label(self.PLH, text='001/001', fg='green', bg='white')
+        self.PL3L.grid(row=2, column=1, sticky='news')
 
         self.PL4N = Label(self.PLH, text='player 4', bg='white')
         self.PL4N.grid(row=3, column=0, sticky='news')
-        self.PL1L = Label(self.PLH, text='001/001', fg='green', bg='white')
-        self.PL1L.grid(row=3, column=1, sticky='news')
+        self.PL4L = Label(self.PLH, text='001/001', fg='green', bg='white')
+        self.PL4L.grid(row=3, column=1, sticky='news')
 
         self.PL5N = Label(self.PLH, text='player 5', bg='white')
         self.PL5N.grid(row=4, column=0, sticky='news')
-        self.PL1L = Label(self.PLH, text='001/001', fg='green', bg='white')
-        self.PL1L.grid(row=4, column=1, sticky='news')
+        self.PL5L = Label(self.PLH, text='001/001', fg='green', bg='white')
+        self.PL5L.grid(row=4, column=1, sticky='news')
 
         for r in range(5):
             self.PLH.rowconfigure(r, weight=2)
@@ -120,11 +113,7 @@ class Screen(Frame):
             response = " I don't understand try again."
             if (verb == attack):
                 pass
-<<<<<<< HEAD
         # the text box understands four word commands
-=======
-                
->>>>>>> c9392d0def3c8e5c5642fc8d55c99bda05096500
         elif (len(words) == 4):
             verb = words[0]
             noun = words[1]
@@ -132,12 +121,21 @@ class Screen(Frame):
             number2 = words[3]
             response = " I don't understand try again."
             if (verb == set):
+                if noun == player:
+                    if  number == 1:
+                        pass
+                    if number == 2:
+                        pass
+                    if number == 3:
+                        pass
+                    if number == 4:
+                        pass
+                    if number == 5:
+                        pass
+                    else:
+                        return response
                 pass
-<<<<<<< HEAD
-        # the text box understands 5 word commands
-=======
-            
->>>>>>> c9392d0def3c8e5c5642fc8d55c99bda05096500
+        # the text box understand five words
         elif (len(words) == 5):
             verb = words[0]
             noun = words[1]
@@ -169,8 +167,6 @@ class Screen(Frame):
         if (player == 1):
             Screen.PL1H['text'] = ""
         
-
-
 
 diceVals = [0, 4, 6, 8, 10, 12, 20]
 WIDTH = 800
