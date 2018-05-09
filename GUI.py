@@ -121,6 +121,19 @@ class Screen(Frame):
             number2 = words[3]
             response = " I don't understand try again."
             if (verb == set):
+                if noun == player:
+                    if  number == 1:
+                        pass
+                    if number == 2:
+                        pass
+                    if number == 3:
+                        pass
+                    if number == 4:
+                        pass
+                    if number == 5:
+                        pass
+                    else:
+                        return response
                 pass
         # the text box understand five words
         elif (len(words) == 5):
