@@ -113,7 +113,7 @@ class Screen(Frame):
             response = " I don't understand try again."
             if (verb == attack):
                 pass
-
+        # the text box understands four word commands
         elif (len(words) == 4):
             verb = words[0]
             noun = words[1]
@@ -122,7 +122,7 @@ class Screen(Frame):
             response = " I don't understand try again."
             if (verb == set):
                 pass
-            
+        # the text box understand five words
         elif (len(words) == 5):
             verb = words[0]
             noun = words[1]
