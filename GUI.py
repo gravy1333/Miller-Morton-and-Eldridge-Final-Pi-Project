@@ -1,11 +1,14 @@
 from Tkinter import *
 from random import randint
 #from Health_LED import *
+<<<<<<< HEAD
+=======
 from player import *
 
 
 
 
+>>>>>>> 6bc632522d3f6c143e719fe05f5f09a6298029bb
 
 class Screen(Frame):
     def __init__(self, master):
@@ -117,7 +120,11 @@ class Screen(Frame):
             response = " I don't understand try again."
             if (verb == attack):
                 pass
+<<<<<<< HEAD
         # the text box understands four word commands
+=======
+                
+>>>>>>> c9392d0def3c8e5c5642fc8d55c99bda05096500
         elif (len(words) == 4):
             verb = words[0]
             noun = words[1]
@@ -126,7 +133,11 @@ class Screen(Frame):
             response = " I don't understand try again."
             if (verb == set):
                 pass
+<<<<<<< HEAD
         # the text box understands 5 word commands
+=======
+            
+>>>>>>> c9392d0def3c8e5c5642fc8d55c99bda05096500
         elif (len(words) == 5):
             verb = words[0]
             noun = words[1]
@@ -148,7 +159,6 @@ class Screen(Frame):
     def roll(self, val):
         roll = randint(1, val)
         self.RDis['text'] = [str(roll), "0" + str(roll)][roll < 10]
-        
         
     def randRoll(self):
         die = diceVals[randint(1, 6)]
