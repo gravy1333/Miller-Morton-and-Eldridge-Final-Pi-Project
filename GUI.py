@@ -135,17 +135,31 @@ class Screen(Frame):
                     else:
                         return response
                 pass
-        # the text box understand five words
+        # the text box understand six words
         elif (len(words) == 5):
             verb = words[0]
             noun = words[1]
             noun2 = words[2]
-            number = words[3]
-            number2 = words[4]
+            noun3 = words[3]
+            number1 = words[4]
+            number2 = words[5]
             response = " I don't understand try again."
             if (verb == set):
                 if (noun == max):
-                    if (noun == health):
+                    if (noun2 == health):
+                        if (noun3 == player):
+                            if (number1 == 1):
+                                pass
+                            if (number == 2):
+                                pass
+                            if (number == 3):
+                                pass
+                            if (number == 4):
+                                pass
+                            if (number == 5):
+                                pass
+                            else:
+                                return response
                         pass
                 
         else:
@@ -167,13 +181,13 @@ class Screen(Frame):
         if (player == 1):
             Screen.PL1H['text'] = ""
         
-
+#IMPORTANT DO NOT MESS WITH THIS
 diceVals = [0, 4, 6, 8, 10, 12, 20]
 WIDTH = 800
 HEIGHT = 600
 
 window = Tk()
-window.title('DnD Yeah boooooooooooyyyyyyyyyyy')
+window.title('DnD Oh Noooo')
 window.geometry('{}x{}'.format(WIDTH, HEIGHT))
 
 GW = Screen(window)
