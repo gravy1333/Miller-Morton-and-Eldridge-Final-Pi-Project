@@ -1,5 +1,5 @@
 class Player():
-    def __init__(self, maxH):
+    def __init__(self, maxH = 10):
         #temp is here to fix player instanciation issue
         self.tempH = maxH
         self.currentH = maxH
@@ -35,4 +35,4 @@ class Player():
         return (float(self.currentH) / self.maxH) * 100
 
     def __str__(self):
-        return "{} / {}".format(self.currentH, self.maxH)
+        return "{}/{}".format(self.currentH, self.maxH)
