@@ -33,3 +33,6 @@ class Player():
 
     def getHealthPercent(self):
         return int((float(self.currentH) / self.maxH) * 100)
+
+    def __str__(self):
+        return "{} / {}".format(self.currentH, self.maxH)
