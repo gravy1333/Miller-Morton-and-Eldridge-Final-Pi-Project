@@ -1,6 +1,5 @@
 #Random monster generator
 from monsters import *
-import random
 from random import randint
 
 party_size = input("How big is your party: ")
