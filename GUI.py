@@ -2,7 +2,7 @@ from Tkinter import *
 from random import randint
 #from Health_LED import *
 from player import *
-
+from monsters import*
 class Screen(Frame):
     def __init__(self, master):
         Frame.__init__(self, master)
@@ -105,20 +105,35 @@ class Screen(Frame):
         action = self.player_input.get()
         action = action.lower()
         words = action.split()
-        # the text box understands three word commands
-        if (len(words) == 3):
-            verb = words[0]
-            noun = words[1]
-            number = words[2]
-            response = " I don't understand try again."
-            if (verb == attack):
-                pass
         # the text box understands four word commands
-        elif (len(words) == 4):
+        if (len(words) == 4):
             verb = words[0]
             noun = words[1]
             number = words[2]
             number2 = words[3]
+            response = " I don't understand try again."
+            if (verb == attack):
+                if (noun == player):
+                    if (number == 1):
+                        pass
+                    if (number == 2):
+                        pass
+                    if (number == 3):
+                        pass
+                    if (number == 4):
+                        pass
+                    if (number == 5):
+                        pass
+                    else:
+                        return response
+                pass
+        # the text box understands five word commands
+        elif (len(words) == 5):
+            verb = words[0]
+            noun = words[1]
+            number = words[2]
+            noun2 = words[3]
+            number2 = words[4]
             response = " I don't understand try again."
             if (verb == set):
                 if noun == player:
