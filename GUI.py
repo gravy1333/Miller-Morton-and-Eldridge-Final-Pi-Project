@@ -50,9 +50,15 @@ class Screen(Frame):
         self.PLH.columnconfigure(0, weight=2)
         self.PLH.columnconfigure(1, weight=1)
 
+
         #Out box 
         self.PLA = Label(window, text='Output box', anchor='nw', relief='sunken')
         self.PLA.grid(row=4, column=0, rowspan=2, columnspan=4, sticky='news')
+
+        #player actions
+        self.out = Label(window, text='Output box', anchor='nw', relief='sunken')
+        self.out.grid(row=4, column=0, rowspan=2, columnspan=4, sticky='news')
+
 
         #monster stats
         self.stats = Label(window, text='Awaiting Battle', anchor='nw', relief='sunken')
@@ -63,10 +69,10 @@ class Screen(Frame):
         self.MA.grid(row=4, column=4, rowspan=2, columnspan=4, sticky='news')
 
         #input bar
-        self.player_input = Entry(window, bg='white')
-        self.player_input.bind('<Return>', self.text_process())
-        self.player_input.grid(row=6, column=0, columnspan=8, sticky='we')
-        self.player_input.focus()
+        GW.player_input = Entry(window, bg='white')
+        GW.player_input.bind("<Return>", GW.text_process())
+        GW.player_input.grid(row=6, column=0, columnspan=8, sticky='we')
+        GW.player_input.focus()
         
         #dice buttons
         self.RDis = Label(window, text='0', bg='white')
@@ -101,11 +107,13 @@ class Screen(Frame):
         self.d12['command'] = lambda val = 12 : self.roll(12)
         self.d20['command'] = lambda val = 20 : self.roll(20)
         self.dRand.bind('<7>', self.randRoll())
+        self.RDis['text'] = '0'
         
     def text_process(self):
-        action = self.player_input.get()
+        action = GW.player_input.get()
         action = action.lower()
         words = action.split()
+        GW.player_input.delete(0, END)
         # the text box understands four word commands
         if (len(words) == 4):
             verb = words[0]
@@ -125,9 +133,7 @@ class Screen(Frame):
                         pass
                     if (number == 5):
                         pass
-                    else:
-                        return response
-                pass
+            GW.out['text'] = "{}".format(response)
         # the text box understands five word commands
         elif (len(words) == 5):
             verb = words[0]
@@ -135,7 +141,7 @@ class Screen(Frame):
             number = words[2]
             noun2 = words[3]
             number2 = words[4]
-            response = " I don't understand try again."
+            response = "I don't understand try again."
             if (verb == set):
                 if noun == player:
                     if  number == 1:
@@ -148,17 +154,15 @@ class Screen(Frame):
                         pass
                     if number == 5:
                         pass
-                    else:
-                        return response
-                pass
+            GW.out['text'] = "{}".format(response)
         # the text box understand six words
         elif (len(words) == 6):
             verb = words[0]
             noun = words[1]
             noun2 = words[2]
             noun3 = words[3]
-            number1 = words[4]
-            number2 = words[5]
+            number1 = int(words[4])
+            number2 = int(words[5])
             response = " I don't understand try again."
             if (verb == "set"):
                 if (noun == "max"):
@@ -180,13 +184,10 @@ class Screen(Frame):
                             if (number == 5):
                                 p5.maxH = number2
                                 p5.currentH = number2
-                            else:
-                                return response
-                        pass
-                
+                            
         else:
             response = " I don't understand try again."
-        print "{}".format(response)
+        GW.out['text'] = "{}".format(response)
 
         
     def play(self):
