@@ -63,7 +63,7 @@ class Screen(Frame):
 
         #input bar
         GW.player_input = Entry(window, bg='white')
-        GW.player_input.bind("<Return>", GW.text_process())
+        GW.player_input.bind('<Return>', GW.text_process())
         GW.player_input.grid(row=6, column=0, columnspan=8, sticky='we')
         GW.player_input.focus()
         
@@ -154,27 +154,27 @@ class Screen(Frame):
             noun = words[1]
             noun2 = words[2]
             noun3 = words[3]
-            number1 = int(words[4])
-            number2 = int(words[5])
+            number1 = words[4]
+            number2 = words[5]
             response = " I don't understand try again."
             if (verb == "set"):
                 if (noun == "max"):
                     if (noun2 == "health"):
                         if (noun3 == "player"):
-                            if (number1 == 1):
+                            if (number1 == '1'):
                                 p1.maxH = number2
                                 p1.currentH = number2
                                 self.PL1H['text'] = str(p1)
-                            if (number == 2):
+                            if (number == '2'):
                                 p2.maxH = number2
                                 p2.currentH = number2
-                            if (number == 3):
+                            if (number == '3'):
                                 p3.maxH = number2
                                 p3.currentH = number2
-                            if (number == 4):
+                            if (number == '4'):
                                 p4.maxH = number2
                                 p4.currentH = number2
-                            if (number == 5):
+                            if (number == '5'):
                                 p5.maxH = number2
                                 p5.currentH = number2
                             
