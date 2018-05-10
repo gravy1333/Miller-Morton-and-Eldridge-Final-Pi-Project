@@ -38,3 +38,39 @@ Monster_Dictionary = {
     "Ghoul":["STR 13(+1) DEX 15(+2) CON 10(+0) INT 7(-2) WIS 10(+0) CHA 6(-2)",1,200,12,30,"Speed 30ft Damage Immunities Poison Condition Immunities Charmed, Exhaustion, Poisoned Senses Darkvision 60ft Perception 10 Languages Common","Bite 1d20+2 2d6+2"],
     "Harpy":["STR 12(+1) DEX 13(+1) CON 12(+1) INT 7(-2) WIS 10(+0) CHA 13(+1)",1,200,11,38,"Speed 20ft fly 40ft Senses passive Perception 10 Languages Common","1d20+3 2d4+1 1d20+3 1d4+1"],
     }
+
+class Monster():
+    def __init__(self, maxH = 10):
+        #temp is here to fix player instanciation issue
+        self.tempH = maxH
+        self.currentH = maxH
+        self.maxH = maxH
+
+    @property
+    def maxH(self):
+        return self._maxH
+
+    @maxH.setter
+    def maxH(self, val):
+        if (val > 0):
+            self._maxH = val
+
+    @property
+    def currentH(self):
+        return self._currentH
+
+    @currentH.setter
+    def currentH(self, val):
+        if (self.tempH + val < 0):
+            self._currentH = 0
+            self.tempH = 0
+
+        elif (self.tempH + val >= self.maxH):
+            self._currentH = self.maxH
+            self.tempH = self.maxH
+        else:
+            self._currentH += val
+            self.tempH += val
+
+    def __str__(self):
+        return "{}/{}".format(self.currentH, self.maxH)
