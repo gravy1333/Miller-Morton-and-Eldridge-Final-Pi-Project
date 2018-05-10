@@ -2,7 +2,7 @@ from Tkinter import *
 from random import randint
 #from Health_LED import *
 from player import *
-
+from monsters import*
 class Screen(Frame):
     def __init__(self, master):
         Frame.__init__(self, master)
@@ -21,27 +21,27 @@ class Screen(Frame):
         
         self.PL1N = Label(self.PLH, text='player 1', bg='white')
         self.PL1N.grid(row=0, column=0, sticky='news')
-        self.PL1L = Label(self.PLH, text='001/001', fg='green', bg='white')
+        self.PL1L = Label(self.PLH, text=str(p1), fg='red', bg='black')
         self.PL1L.grid(row=0, column=1, sticky='news')
 
         self.PL2N = Label(self.PLH, text='player 2', bg='white')
         self.PL2N.grid(row=1, column=0, sticky='news')
-        self.PL2L = Label(self.PLH, text='001/001', fg='green', bg='white')
+        self.PL2L = Label(self.PLH, text=str(p2), fg='red', bg='black')
         self.PL2L.grid(row=1, column=1, sticky='news')
 
         self.PL3N = Label(self.PLH, text='player 3', bg='white')
         self.PL3N.grid(row=2, column=0, sticky='news')
-        self.PL3L = Label(self.PLH, text='001/001', fg='green', bg='white')
+        self.PL3L = Label(self.PLH, text=str(p3), fg='red', bg='black')
         self.PL3L.grid(row=2, column=1, sticky='news')
 
         self.PL4N = Label(self.PLH, text='player 4', bg='white')
         self.PL4N.grid(row=3, column=0, sticky='news')
-        self.PL4L = Label(self.PLH, text='001/001', fg='green', bg='white')
+        self.PL4L = Label(self.PLH, text=str(p4), fg='red', bg='black')
         self.PL4L.grid(row=3, column=1, sticky='news')
 
         self.PL5N = Label(self.PLH, text='player 5', bg='white')
         self.PL5N.grid(row=4, column=0, sticky='news')
-        self.PL5L = Label(self.PLH, text='001/001', fg='green', bg='white')
+        self.PL5L = Label(self.PLH, text=str(p5), fg='red', bg='black')
         self.PL5L.grid(row=4, column=1, sticky='news')
 
         for r in range(5):
@@ -105,20 +105,35 @@ class Screen(Frame):
         action = self.player_input.get()
         action = action.lower()
         words = action.split()
-        # the text box understands three word commands
-        if (len(words) == 3):
-            verb = words[0]
-            noun = words[1]
-            number = words[2]
-            response = " I don't understand try again."
-            if (verb == attack):
-                pass
         # the text box understands four word commands
-        elif (len(words) == 4):
+        if (len(words) == 4):
             verb = words[0]
             noun = words[1]
             number = words[2]
             number2 = words[3]
+            response = " I don't understand try again."
+            if (verb == attack):
+                if (noun == player):
+                    if (number == 1):
+                        pass
+                    if (number == 2):
+                        pass
+                    if (number == 3):
+                        pass
+                    if (number == 4):
+                        pass
+                    if (number == 5):
+                        pass
+                    else:
+                        return response
+                pass
+        # the text box understands five word commands
+        elif (len(words) == 5):
+            verb = words[0]
+            noun = words[1]
+            number = words[2]
+            noun2 = words[3]
+            number2 = words[4]
             response = " I don't understand try again."
             if (verb == set):
                 if noun == player:
@@ -136,7 +151,7 @@ class Screen(Frame):
                         return response
                 pass
         # the text box understand six words
-        elif (len(words) == 5):
+        elif (len(words) == 6):
             verb = words[0]
             noun = words[1]
             noun2 = words[2]
