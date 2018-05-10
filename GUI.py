@@ -160,20 +160,26 @@ class Screen(Frame):
             number1 = words[4]
             number2 = words[5]
             response = " I don't understand try again."
-            if (verb == set):
-                if (noun == max):
-                    if (noun2 == health):
-                        if (noun3 == player):
+            if (verb == "set"):
+                if (noun == "max"):
+                    if (noun2 == "health"):
+                        if (noun3 == "player"):
                             if (number1 == 1):
-                                pass
+                                p1.maxH = number2
+                                p1.currentH = number2
+                                self.PL1H['text'] = str(p1)
                             if (number == 2):
-                                pass
+                                p2.maxH = number2
+                                p2.currentH = number2
                             if (number == 3):
-                                pass
+                                p3.maxH = number2
+                                p3.currentH = number2
                             if (number == 4):
-                                pass
+                                p4.maxH = number2
+                                p4.currentH = number2
                             if (number == 5):
-                                pass
+                                p5.maxH = number2
+                                p5.currentH = number2
                             else:
                                 return response
                         pass
@@ -181,6 +187,8 @@ class Screen(Frame):
         else:
             response = " I don't understand try again."
         print "{}".format(response)
+
+        
     def play(self):
         self.setGUI()
 
@@ -200,12 +208,21 @@ class Screen(Frame):
         
 #IMPORTANT DO NOT MESS WITH THIS
 diceVals = [0, 4, 6, 8, 10, 12, 20]
+
 p1 = Player()
 p2 = Player()
 p3 = Player()
 p4 = Player()
 p5 = Player()
 players = [p1, p2, p3, p4, p5]
+
+m1 = Monster()
+m2 = Monster()
+m3 = Monster()
+m4 = Monster()
+m5 = Monster()
+monsters = [m1, m2, m3, m4, m5]
+
 WIDTH = 800
 HEIGHT = 600
 
