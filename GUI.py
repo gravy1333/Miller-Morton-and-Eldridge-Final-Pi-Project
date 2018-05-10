@@ -136,7 +136,7 @@ class Screen(Frame):
                         return response
                 pass
         # the text box understand six words
-        elif (len(words) == 5):
+        elif (len(words) == 6):
             verb = words[0]
             noun = words[1]
             noun2 = words[2]
@@ -144,20 +144,26 @@ class Screen(Frame):
             number1 = words[4]
             number2 = words[5]
             response = " I don't understand try again."
-            if (verb == set):
-                if (noun == max):
-                    if (noun2 == health):
-                        if (noun3 == player):
+            if (verb == "set"):
+                if (noun == "max"):
+                    if (noun2 == "health"):
+                        if (noun3 == "player"):
                             if (number1 == 1):
-                                pass
+                                p1.maxH = number2
+                                p1.currentH = number2
+                                self.PL1H['text'] = str(p1)
                             if (number == 2):
-                                pass
+                                p2.maxH = number2
+                                p2.currentH = number2
                             if (number == 3):
-                                pass
+                                p3.maxH = number2
+                                p3.currentH = number2
                             if (number == 4):
-                                pass
+                                p4.maxH = number2
+                                p4.currentH = number2
                             if (number == 5):
-                                pass
+                                p5.maxH = number2
+                                p5.currentH = number2
                             else:
                                 return response
                         pass
@@ -165,6 +171,8 @@ class Screen(Frame):
         else:
             response = " I don't understand try again."
         print "{}".format(response)
+
+        
     def play(self):
         self.setGUI()
 
