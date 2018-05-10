@@ -50,7 +50,7 @@ class Screen(Frame):
         self.PLH.columnconfigure(1, weight=1)
 
         #player actions
-        self.PLA = Label(window, text='Player actions', anchor='nw', relief='sunken')
+        self.PLA = Label(window, text='Output box', anchor='nw', relief='sunken')
         self.PLA.grid(row=4, column=0, rowspan=2, columnspan=4, sticky='news')
 
         #monster stats
@@ -208,7 +208,7 @@ WIDTH = 800
 HEIGHT = 600
 
 window = Tk()
-window.title('DnD Oh Noooo')
+window.title('DnD Dungen Master Tool for levels 0-1')
 window.geometry('{}x{}'.format(WIDTH, HEIGHT))
 
 GW = Screen(window)
