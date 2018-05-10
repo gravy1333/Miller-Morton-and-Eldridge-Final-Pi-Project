@@ -2,7 +2,8 @@ from Tkinter import *
 from random import randint
 #from Health_LED import *
 from player import *
-from monsters import*
+from Random_monster import *
+
 class Screen(Frame):
     def __init__(self, master):
         Frame.__init__(self, master)
@@ -49,9 +50,15 @@ class Screen(Frame):
         self.PLH.columnconfigure(0, weight=2)
         self.PLH.columnconfigure(1, weight=1)
 
+
+        #Out box 
+        self.PLA = Label(window, text='Output box', anchor='nw', relief='sunken')
+        self.PLA.grid(row=4, column=0, rowspan=2, columnspan=4, sticky='news')
+
         #player actions
         self.out = Label(window, text='Output box', anchor='nw', relief='sunken')
         self.out.grid(row=4, column=0, rowspan=2, columnspan=4, sticky='news')
+
 
         #monster stats
         self.stats = Label(window, text='Awaiting Battle', anchor='nw', relief='sunken')
@@ -126,7 +133,7 @@ class Screen(Frame):
                         pass
                     if (number == 5):
                         pass
-            
+            GW.out['text'] = "{}".format(response)
         # the text box understands five word commands
         elif (len(words) == 5):
             verb = words[0]
@@ -147,7 +154,7 @@ class Screen(Frame):
                         pass
                     if number == 5:
                         pass
-            
+            GW.out['text'] = "{}".format(response)
         # the text box understand six words
         elif (len(words) == 6):
             verb = words[0]
@@ -198,6 +205,7 @@ class Screen(Frame):
     def changePlayerHealth(player, val):
         if (player == 1):
             Screen.PL1H['text'] = ""
+    
         
 #IMPORTANT DO NOT MESS WITH THIS
 diceVals = [0, 4, 6, 8, 10, 12, 20]
