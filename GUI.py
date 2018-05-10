@@ -198,12 +198,21 @@ class Screen(Frame):
         
 #IMPORTANT DO NOT MESS WITH THIS
 diceVals = [0, 4, 6, 8, 10, 12, 20]
+
 p1 = Player()
 p2 = Player()
 p3 = Player()
 p4 = Player()
 p5 = Player()
 players = [p1, p2, p3, p4, p5]
+
+m1 = Monster()
+m2 = Monster()
+m3 = Monster()
+m4 = Monster()
+m5 = Monster()
+monsters = [m1, m2, m3, m4, m5]
+
 WIDTH = 800
 HEIGHT = 600
 
