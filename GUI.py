@@ -52,7 +52,6 @@ class Screen(Frame):
         self.PLH.columnconfigure(0, weight=2)
         self.PLH.columnconfigure(1, weight=1)
 
-
         #Out box 
         self.PLA = Label(window, text='Output box', anchor='nw', relief='sunken')
         self.PLA.grid(row=4, column=0, rowspan=2, columnspan=4, sticky='news')
@@ -60,7 +59,6 @@ class Screen(Frame):
         #player actions
         self.out = Label(window, text='Output box', anchor='nw', relief='sunken')
         self.out.grid(row=4, column=0, rowspan=2, columnspan=4, sticky='news')
-
 
         #monster stats
         self.stats = Label(window, text='Awaiting Battle', anchor='nw', relief='sunken')
@@ -77,7 +75,7 @@ class Screen(Frame):
         GW.player_input.focus()
         
         #dice buttons
-        self.RDis = Label(window, text='0', bg='white')
+        self.RDis = Label(window, text='00', bg='white')
         self.RDis.grid(row=7, column=7, sticky='news')
         
         self.d4 = Button(window, bg='white', text='d4', width=1)
@@ -108,11 +106,11 @@ class Screen(Frame):
         self.d10['command'] = lambda val = 10 : self.roll(10)
         self.d12['command'] = lambda val = 12 : self.roll(12)
         self.d20['command'] = lambda val = 20 : self.roll(20)
-        self.dRand.bind('<7>', self.randRoll())
-        self.RDis['text'] = '0'
-        
+        self.dRand.bind('<7>', self.randRoll)
+
+        GW.grid_propagate(0)
+
     def text_process(self, event):
-        print "Hello"
         action = GW.player_input.get()
         action = action.lower()
         words = action.split()
