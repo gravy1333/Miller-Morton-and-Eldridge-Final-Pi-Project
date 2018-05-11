@@ -109,7 +109,7 @@ class Screen(Frame):
         self.dRand.bind('<7>', self.randRoll())
         self.RDis['text'] = '0'
         
-    def text_process(self, action):
+    def text_process(self, event):
         print "Hello"
         action = GW.player_input.get()
         action = action.lower()
@@ -172,17 +172,17 @@ class Screen(Frame):
                             if (number1 == 1):
                                 p1.maxH = number2
                                 p1.currentH = number2
-                                self.PL1H['text'] = str(p1)
-                            if (number == 2):
+                                self.PL1L['text'] = str(p1)
+                            elif (number1 == 2):
                                 p2.maxH = number2
                                 p2.currentH = number2
-                            if (number == 3):
+                            elif (number1 == 3):
                                 p3.maxH = number2
                                 p3.currentH = number2
-                            if (number == 4):
+                            elif (number1 == 4):
                                 p4.maxH = number2
                                 p4.currentH = number2
-                            if (number == 5):
+                            elif (number1 == 5):
                                 p5.maxH = number2
                                 p5.currentH = number2
                             
