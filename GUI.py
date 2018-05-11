@@ -106,7 +106,7 @@ class Screen(Frame):
         self.d20['command'] = lambda val = 20 : self.roll(20)
         self.dRand.bind('<7>', self.randRoll)
 
-        window.grid_propagate(0)
+        GW.grid_propagate(0)
 
     def text_process(self, event):
         action = GW.player_input.get()
