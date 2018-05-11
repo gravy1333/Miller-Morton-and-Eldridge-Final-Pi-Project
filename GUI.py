@@ -3,6 +3,8 @@ from random import randint
 #from Health_LED import *
 from player import *
 from Random_monster import *
+from monsters import *
+
 
 class Screen(Frame):
     def __init__(self, master):
@@ -245,10 +247,6 @@ class Screen(Frame):
         die = diceVals[randint(1, 6)]
         self.roll(die)
 
-
-    def changePlayerHealth(player, val):
-        if (player == 1):
-            Screen.PL1H['text'] = ""
     
         
 #IMPORTANT DO NOT MESS WITH THIS
