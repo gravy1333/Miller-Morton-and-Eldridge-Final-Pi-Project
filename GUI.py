@@ -113,47 +113,81 @@ class Screen(Frame):
         action = action.lower()
         words = action.split()
         GW.player_input.delete(0, END)
-        # the text box understands four word commands
-        if (len(words) == 4):
+        # the text box understands two commands
+        if (len(words) == 2):
             verb = words[0]
             noun = words[1]
-            number = words[2]
-            number2 = words[3]
-            response = " I don't understand try again."
-            if (verb == attack):
-                if (noun == player):
+            if (verb == "valid"):
+                if (noun == "commands"):
+                    t = "To set health type 'set, player, [the player #], health, [player's health]"
+                    t += "\n"
+                    t += "To attack a player type 'attack, player, [the player #], [the amount of damage]"
+                    t += "\n"
+                    t += "To st the max health type 'set, max, health, player, [the player #], [the max health]"
+                    response = t
+        # the text box understands four word commands
+        elif (len(words) == 4):
+            verb = words[0]
+            noun = words[1]
+            number = int(words[2])
+            number2 = int(words[3])
+            response = " I don't understand try 'valid commands' to view vaild commands."
+            if (verb == "attack"):
+                if (noun == "player"):
                     if (number == 1):
-                        pass
-                    if (number == 2):
-                        pass
-                    if (number == 3):
-                        pass
-                    if (number == 4):
-                        pass
-                    if (number == 5):
-                        pass
+                        p1.currentH -= number2
+                        self.PL1L['text'] = str(p1)
+                        response = "Changed"
+                    elif (number == 2):
+                        p2.currentH -= number2
+                        self.PL2L['text'] = str(p2)
+                        response = "Changed"
+                    elif (number == 3):
+                        p3.currentH -= number2
+                        self.PL3L['text'] = str(p3)
+                        response = "Changed"
+                    elif (number == 4):
+                        p4.currentH -= number2
+                        self.PL4L['text'] = str(p4)
+                        response = "Changed"
+                    elif (number == 5):
+                        p5.currentH -= number2
+                        self.PL5L['text'] = str(p5)
+                        response = "Changed"
             
         # the text box understands five word commands
         elif (len(words) == 5):
             verb = words[0]
             noun = words[1]
-            number = words[2]
+            number = int(words[2])
             noun2 = words[3]
-            number2 = words[4]
-            response = "I don't understand try again."
-            if (verb == set):
-                if noun == player:
-                    if  number == 1:
-                        pass
-                    if number == 2:
-                        pass
-                    if number == 3:
-                        pass
-                    if number == 4:
-                        pass
-                    if number == 5:
-                        pass
-            
+            number2 = int(words[4])
+            response = " I don't understand try 'valid commands' to view vaild commands."
+            if (verb == "set"):
+                if noun == "player":
+                    if noun2 == "health":
+                        if  number == 1:
+                            p1.currentH = number2
+                            self.PL1L['text'] = str(p1)
+                            response = "Changed"
+                        elif number == 2:
+                            p2.currentH = number2
+                            self.PL2L['text'] = str(p2)
+                            response = "Changed"
+                        elif number == 3:
+                            p3.currentH = number2
+                            self.PL3L['text'] = str(p3)
+                            response = "Changed"
+                        elif number == 4:
+                            p4.currentH = number2
+                            self.PL4L['text'] = str(p4)
+                            response = "Changed"
+                        elif number == 5:
+                            p5.currentH = number2
+                            self.PL5L['text'] = str(p5)
+                            response = "Changed"
+                            
+                
         # the text box understand six words
         elif (len(words) == 6):
             verb = words[0]
@@ -162,7 +196,7 @@ class Screen(Frame):
             noun3 = words[3]
             number1 = int(words[4])
             number2 = int(words[5])
-            response = " I don't understand try again."
+            response = " I don't understand try 'valid commands' to view vaild commands."
             if (verb == "set"):
                 if (noun == "max"):
                     if (noun2 == "health"):
@@ -171,21 +205,30 @@ class Screen(Frame):
                                 p1.maxH = number2
                                 p1.currentH = number2
                                 self.PL1L['text'] = str(p1)
+                                response = "Changed"
                             elif (number1 == 2):
                                 p2.maxH = number2
                                 p2.currentH = number2
+                                self.PL2L['text'] = str(p2)
+                                response = "Changed"
                             elif (number1 == 3):
                                 p3.maxH = number2
                                 p3.currentH = number2
+                                self.PL3L['text'] = str(p3)
+                                response = "Changed"
                             elif (number1 == 4):
                                 p4.maxH = number2
                                 p4.currentH = number2
+                                self.PL4L['text'] = str(p4)
+                                response = "Changed"
                             elif (number1 == 5):
                                 p5.maxH = number2
                                 p5.currentH = number2
+                                self.PL5L['text'] = str(p5)
+                                response = "Changed"
                             
         else:
-            response = " I don't understand try again."
+            response = " I don't understand try 'valid commands' to view vaild commands."
         GW.out['text'] = "{}".format(response)
 
         
