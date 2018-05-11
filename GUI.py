@@ -109,7 +109,7 @@ class Screen(Frame):
         self.dRand.bind('<7>', self.randRoll())
         self.RDis['text'] = '0'
         
-    def text_process(self, action):
+    def text_process(self):
         print "Hello"
         action = GW.player_input.get()
         action = action.lower()
