@@ -110,7 +110,6 @@ class Screen(Frame):
         self.RDis['text'] = '0'
         
     def text_process(self):
-        print "Hello"
         action = GW.player_input.get()
         action = action.lower()
         words = action.split()
@@ -172,7 +171,7 @@ class Screen(Frame):
                             if (number1 == 1):
                                 p1.maxH = number2
                                 p1.currentH = number2
-                                self.PL1H['text'] = str(p1)
+                                self.PL1L['text'] = str(p1)
                             if (number == 2):
                                 p2.maxH = number2
                                 p2.currentH = number2
