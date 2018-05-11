@@ -70,7 +70,7 @@ class Screen(Frame):
 
         #input bar
         GW.player_input = Entry(window, bg='white')
-        GW.player_input.bind("<Return>", GW.text_process())
+        GW.player_input.bind("<Return>", GW.text_process)
         GW.player_input.grid(row=6, column=0, columnspan=8, sticky='we')
         GW.player_input.focus()
         
@@ -109,7 +109,8 @@ class Screen(Frame):
         self.dRand.bind('<7>', self.randRoll())
         self.RDis['text'] = '0'
         
-    def text_process(self):
+    def text_process(self, action):
+        print "Hello"
         action = GW.player_input.get()
         action = action.lower()
         words = action.split()
@@ -133,7 +134,7 @@ class Screen(Frame):
                         pass
                     if (number == 5):
                         pass
-            GW.out['text'] = "{}".format(response)
+            
         # the text box understands five word commands
         elif (len(words) == 5):
             verb = words[0]
@@ -154,7 +155,7 @@ class Screen(Frame):
                         pass
                     if number == 5:
                         pass
-            GW.out['text'] = "{}".format(response)
+            
         # the text box understand six words
         elif (len(words) == 6):
             verb = words[0]
