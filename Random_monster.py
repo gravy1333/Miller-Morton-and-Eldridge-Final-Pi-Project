@@ -1,6 +1,7 @@
 #Random monster generator
 from monsters import *
 from random import randint
+import random
 
 party_size = input("How big is your party: ")
 print "Monster's sheet reference [ Stats, Challenge Rating number, Experience points, Armor Class, Hp, Specs, Actions]"
