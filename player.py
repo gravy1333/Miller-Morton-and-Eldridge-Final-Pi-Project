@@ -1,9 +1,8 @@
-class Player():
-    def __init__(self, maxH = 10):
+class Player(object):
+    def __init__(self, val=10):
         #temp is here to fix player instanciation issue
-        self.tempH = maxH
-        self.currentH = maxH
-        self.maxH = maxH
+        self.maxH = val
+        self.currentH = val
 
     @property
     def maxH(self):
@@ -20,19 +19,16 @@ class Player():
 
     @currentH.setter
     def currentH(self, val):
-        if (self.tempH + val < 0):
+        if (val <= 0):
             self._currentH = 0
-            self.tempH = 0
-
-        elif (self.tempH + val >= self.maxH):
+        elif (val >= self.maxH):
             self._currentH = self.maxH
-            self.tempH = self.maxH
         else:
-            self._currentH += val
-            self.tempH += val
+            self._currentH = val
 
     def getHealthPercent(self):
         return (float(self.currentH) / self.maxH) * 100
 
     def __str__(self):
         return "{}/{}".format(self.currentH, self.maxH)
+

@@ -15,37 +15,35 @@ class Screen(Frame):
         master.rowconfigure(6, weight=0)
         master.rowconfigure(7, weight=1)
         self.grid(sticky='news')
-        self.grid_propagate(0)
-        self.pack_propagate(0)
 
     def setGUI(self):
         #player health
         self.PLH = Label(window, bg='white', width=WIDTH/2)
         self.PLH.grid(row=0, column=0, rowspan=3, columnspan=4, sticky='news')
         
-        self.PL1N = Label(self.PLH, text='player 1', bg='white')
+        self.PL1N = Label(self.PLH, text='player 1', bg='white', width=WIDTH/3)
         self.PL1N.grid(row=0, column=0, sticky='news')
-        self.PL1L = Label(self.PLH, text=str(p1), fg='red', bg='black')
+        self.PL1L = Label(self.PLH, text=str(p1), fg='red', bg='black', width=WIDTH/6)
         self.PL1L.grid(row=0, column=1, sticky='news')
 
-        self.PL2N = Label(self.PLH, text='player 2', bg='white')
+        self.PL2N = Label(self.PLH, text='player 2', bg='white', width=WIDTH/3)
         self.PL2N.grid(row=1, column=0, sticky='news')
-        self.PL2L = Label(self.PLH, text=str(p2), fg='red', bg='black')
+        self.PL2L = Label(self.PLH, text=str(p2), fg='red', bg='black', width=WIDTH/6)
         self.PL2L.grid(row=1, column=1, sticky='news')
 
-        self.PL3N = Label(self.PLH, text='player 3', bg='white')
+        self.PL3N = Label(self.PLH, text='player 3', bg='white', width=WIDTH/3)
         self.PL3N.grid(row=2, column=0, sticky='news')
-        self.PL3L = Label(self.PLH, text=str(p3), fg='red', bg='black')
+        self.PL3L = Label(self.PLH, text=str(p3), fg='red', bg='black', width=WIDTH/6)
         self.PL3L.grid(row=2, column=1, sticky='news')
 
-        self.PL4N = Label(self.PLH, text='player 4', bg='white')
+        self.PL4N = Label(self.PLH, text='player 4', bg='white', width=WIDTH/3)
         self.PL4N.grid(row=3, column=0, sticky='news')
-        self.PL4L = Label(self.PLH, text=str(p4), fg='red', bg='black')
+        self.PL4L = Label(self.PLH, text=str(p4), fg='red', bg='black', width=WIDTH/6)
         self.PL4L.grid(row=3, column=1, sticky='news')
 
-        self.PL5N = Label(self.PLH, text='player 5', bg='white')
+        self.PL5N = Label(self.PLH, text='player 5', bg='white', width=WIDTH/3)
         self.PL5N.grid(row=4, column=0, sticky='news')
-        self.PL5L = Label(self.PLH, text=str(p5), fg='red', bg='black')
+        self.PL5L = Label(self.PLH, text=str(p5), fg='red', bg='black', width=WIDTH/6)
         self.PL5L.grid(row=4, column=1, sticky='news')
 
         for r in range(5):
@@ -113,14 +111,14 @@ class Screen(Frame):
         response = " I don't understand try 'valid commands' to view vaild commands."
         # the text box understands two commands
         if (len(words) == 2):
-            verb = words[0]
-            noun = words[1]
-            if (verb == "valid"):
-                if (noun == "commands"):
+            if (words[0] == "valid"):
+                if (words[1] == "commands"):
                     t = "To set health type 'set, player, [the player #], health, [player's health]\n"
                     t += "To attack a player type 'attack, player, [the player #], \n\t[the amount of damage]\n"
                     t += "To st the max health type 'set, max, health, player, \n\t[the player #], [the max health]"
                     response = t
+            elif (words[0] == "members"):
+                self.party_size = int(words[1])
         # the text box understand three commands
         # the text box understands four word commands
         elif (len(words) == 4):
@@ -131,13 +129,13 @@ class Screen(Frame):
             if (verb == "attack"):
                 if (noun == "player"):
                     if (number1 == 1):
-                        p1.currentH -= number2
+                        p1.currentH += -number2
                         self.PL1L['text'] = str(p1)
                     elif (number == 2):
-                        p2.currentH -= number2
+                        p2.currentH += -number2
                         self.PL2L['text'] = str(p2)
                     elif (number == 3):
-                        p3.currentH -= number2
+                        p3.currentH += -number2
                         self.PL3L['text'] = str(p3)
                     elif (number == 4):
                         p4.currentH -= number2
@@ -228,17 +226,15 @@ class Screen(Frame):
         self.roll(die)
 
     def monster_spawn(self):
-        party_size = int(GW.player_input.get())
-        GW.player_input.delete(0, END)
-        if party_size == 1:
+        if self.party_size == 1:
             number_of_monsters = randint(1,2)
-        elif party_size == 2:
+        elif self.party_size == 2:
             number_of_monsters = randint(1,2)
-        elif party_size == 3:
+        elif self.party_size == 3:
             number_of_monsters = randint(2,3)
-        elif party_size == 4:
+        elif self.party_size == 4:
             number_of_monsters = randint(3,4)     
-        elif party_size == 5:
+        elif self.party_size == 5:
             number_of_monsters = randint(4,5)
         else:
             number_of_monsters = randint(4,5)
@@ -279,7 +275,8 @@ GW = Screen(window)
 GW.play()
 
 window.mainloop()
-
+'''
 for element in LED:
     LED[element].stop()
 GPIO.cleanup()
+'''
