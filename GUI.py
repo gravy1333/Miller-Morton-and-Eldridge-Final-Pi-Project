@@ -52,7 +52,6 @@ class Screen(Frame):
         self.PLH.columnconfigure(1, weight=1)
 
         #Out box 
-<<<<<<< HEAD
         self.PLA = Label(window, text='Output box', anchor='nw', relief='sunken')
         self.PLA.grid(row=4, column=0, rowspan=2, columnspan=4, sticky='news')
 
@@ -67,7 +66,6 @@ class Screen(Frame):
         #monster actions
         self.MA = Label(window, text='Moster Actions', anchor='nw', relief='sunken')
         self.MA.grid(row=4, column=4, rowspan=2, columnspan=4, sticky='news')
-=======
         self.out = Label(window, text='(Enter in input text bar)\nHow big is your party: ', anchor='nw', relief='sunken', justify='left', width=WIDTH/2)
         self.out.grid(row=4, column=0, rowspan=2, columnspan=4, sticky='news')
 
@@ -78,7 +76,6 @@ class Screen(Frame):
         #monster actions
         self.Mstats = Label(window, text='Moster Actions', anchor='nw', relief='sunken', justify='left', width=WIDTH/2)
         self.Mstats.grid(row=4, column=4, rowspan=2, columnspan=4, sticky='news')
->>>>>>> 127f1ff0ee031de586f53f16cd16e84b677c574a
 
         #input bar
         GW.player_input = Entry(window, bg='white')
@@ -120,11 +117,8 @@ class Screen(Frame):
         self.d20['command'] = lambda val = 20 : self.roll(20)
         self.dRand.bind('<7>', self.randRoll)
 
-<<<<<<< HEAD
         GW.grid_propagate(0)
 
-=======
->>>>>>> 127f1ff0ee031de586f53f16cd16e84b677c574a
     def text_process(self, event):
         action = GW.player_input.get()
         action = action.lower()
@@ -137,17 +131,14 @@ class Screen(Frame):
             response = " I don't understand try 'valid commands' to view vaild commands."
             if (verb == "valid"):
                 if (noun == "commands"):
-<<<<<<< HEAD
                     t = "To set health type 'set, player, [the player #], health, [player's health]"
                     t += "\n"
                     t += "To attack a player type 'attack, player, [the player #], [the amount of damage]"
                     t += "\n"
                     t += "To st the max health type 'set, max, health, player, [the player #], [the max health]"
-=======
                     t = "To set health type 'set, player, [the player #], health, [player's health]\n"
                     t += "To attack a player type 'attack, player, [the player #], \n\t[the amount of damage]\n"
                     t += "To st the max health type 'set, max, health, player, \n\t[the player #], [the max health]"
->>>>>>> 127f1ff0ee031de586f53f16cd16e84b677c574a
                     response = t
         # the text box understand three commands
         # the text box understands four word commands
@@ -162,7 +153,6 @@ class Screen(Frame):
                     if (number1 == 1):
                         p1.currentH -= number2
                         self.PL1L['text'] = str(p1)
-<<<<<<< HEAD
                         response = "Changed"
                     elif (number1 == 2):
                         p2.currentH -= number2
@@ -181,7 +171,6 @@ class Screen(Frame):
                         self.PL5L['text'] = str(p5)
                         response = "Changed"
             
-=======
                     elif (number == 2):
                         p2.currentH -= number2
                         self.PL2L['text'] = str(p2)
@@ -197,7 +186,6 @@ class Screen(Frame):
                     response = "Player Health Changed"
                     #HealthDisplay(number1, players[number1 - 1])
 
->>>>>>> 127f1ff0ee031de586f53f16cd16e84b677c574a
         # the text box understands five word commands
         elif (len(words) == 5):
             verb = words[0]
@@ -212,7 +200,6 @@ class Screen(Frame):
                         if  number1 == 1:
                             p1.currentH = number2
                             self.PL1L['text'] = str(p1)
-<<<<<<< HEAD
                             response = "Changed"
                         elif number1 == 2:
                             p2.currentH = number2
@@ -232,7 +219,6 @@ class Screen(Frame):
                             response = "Changed"
                             
                 
-=======
                         elif number == 2:
                             p2.currentH = number2
                             self.PL2L['text'] = str(p2)
@@ -248,7 +234,6 @@ class Screen(Frame):
                         response = "Player Health Changed"
                         #HealthDisplay(number1, players[number1 - 1])
                               
->>>>>>> 127f1ff0ee031de586f53f16cd16e84b677c574a
         # the text box understand six words
         elif (len(words) == 6):
             verb = words[0]
@@ -304,9 +289,7 @@ class Screen(Frame):
         die = diceVals[randint(1, 6)]
         self.roll(die)
 
-<<<<<<< HEAD
-    
-=======
+
     def monster_spawn(self):
         party_size = int(GW.player_input.get())
         GW.player_input.delete(0, END)
@@ -326,7 +309,6 @@ class Screen(Frame):
         GW.MA['text'] = "Number of Monsters: {} Name of Monster : {}".format(number_of_monsters,monster)
         GW.Mstats['text'] = "Monster's sheet reference [ Stats, Challenge Rating number, Experience points, Armor Class, Hp, Specs, Actions]"
         GW.Mstats['text'] += "Monster's sheet {}".format(Monster_Dictionary[monster])
->>>>>>> 127f1ff0ee031de586f53f16cd16e84b677c574a
         
 #IMPORTANT DO NOT MESS WITH THIS
 diceVals = [0, 4, 6, 8, 10, 12, 20]
