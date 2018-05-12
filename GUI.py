@@ -152,6 +152,7 @@ class Screen(Frame):
                         p5.currentH -= number2
                         self.PL5L['text'] = str(p5)
                         response = "Changed"
+                    #HealthDisplay(number1, players[number1 - 1])
             
         # the text box understands five word commands
         elif (len(words) == 5):
@@ -184,6 +185,7 @@ class Screen(Frame):
                             p5.currentH = number2
                             self.PL5L['text'] = str(p5)
                             response = "Changed"
+                        #HealthDisplay(number1, players[number1 - 1])
                             
                 
         # the text box understand six words
@@ -224,6 +226,7 @@ class Screen(Frame):
                                 p5.currentH = number2
                                 self.PL5L['text'] = str(p5)
                                 response = "Changed"
+                            #HealthDisplay(number1, players[number1 - 1])
                             
         else:
             response = " I don't understand try 'valid commands' to view vaild commands."
