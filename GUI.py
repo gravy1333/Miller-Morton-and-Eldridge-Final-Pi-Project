@@ -51,19 +51,15 @@ class Screen(Frame):
         self.PLH.columnconfigure(1, weight=1)
 
         #Out box 
-        self.PLA = Label(window, text='Output box', anchor='nw', relief='sunken')
-        self.PLA.grid(row=4, column=0, rowspan=2, columnspan=4, sticky='news')
-
-        #player actions
-        self.out = Label(window, text='Output box', anchor='nw', relief='sunken')
+        self.out = Label(window, text='Output box', anchor='nw', relief='sunken', justify='right')
         self.out.grid(row=4, column=0, rowspan=2, columnspan=4, sticky='news')
 
         #monster stats
-        self.stats = Label(window, text='Awaiting Battle', anchor='nw', relief='sunken')
+        self.stats = Label(window, text='Awaiting Battle', anchor='nw', relief='sunken', justify='right')
         self.stats.grid(row=0, column=4, rowspan=3, columnspan=4, sticky='news')
 
         #monster actions
-        self.MA = Label(window, text='Moster Actions', anchor='nw', relief='sunken')
+        self.MA = Label(window, text='Moster Actions', anchor='nw', relief='sunken', justify='right')
         self.MA.grid(row=4, column=4, rowspan=2, columnspan=4, sticky='news')
 
         #input bar
@@ -106,7 +102,7 @@ class Screen(Frame):
         self.d20['command'] = lambda val = 20 : self.roll(20)
         self.dRand.bind('<7>', self.randRoll)
 
-        GW.grid_propagate(0)
+        self.PL1L.grid_propagate(0)
 
     def text_process(self, event):
         action = GW.player_input.get()
