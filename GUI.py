@@ -1,4 +1,5 @@
 from Tkinter import *
+import random
 from random import randint
 #from Health_LED import *
 from player import *
@@ -55,11 +56,11 @@ class Screen(Frame):
         self.out.grid(row=4, column=0, rowspan=2, columnspan=4, sticky='news')
 
         #monster stats
-        self.MA = Label(window, text='Awaiting Battle', anchor='nw', relief='sunken', justify='left', width=WIDTH/2)
+        self.MA = Label(window, text='Awaiting Battle', anchor='nw', relief='sunken', justify='left', width=WIDTH/2, wraplength = WIDTH/2 - 5)
         self.MA.grid(row=0, column=4, rowspan=3, columnspan=4, sticky='news')
 
         #monster actions
-        self.Mstats = Label(window, text='Moster Actions', anchor='nw', relief='sunken', justify='left', width=WIDTH/2)
+        self.Mstats = Label(window, text='Moster Actions', anchor='nw', relief='sunken', justify='left', width=WIDTH/2, wraplength = WIDTH/2 - 5)
         self.Mstats.grid(row=4, column=4, rowspan=2, columnspan=4, sticky='news')
 
         #input bar
@@ -116,10 +117,17 @@ class Screen(Frame):
                 if (noun == "commands"):
                     t = "To set health type 'set, player, [the player #], health, [player's health]\n"
                     t += "To attack a player type 'attack, player, [the player #], \n\t[the amount of damage]\n"
-                    t += "To st the max health type 'set, max, health, player, \n\t[the player #], [the max health]"
+                    t += "To st the max health type 'set, max, health, player, \n\t[the player #], [the max health]\n"
+                    t += "To set members type ' members, [# of members]\n"
+                    t += "To spawn monsters type ' spawn, monsters'"
                     response = t
             elif (words[0] == "members"):
                 self.party_size = int(words[1])
+                response = "Party sized changed"
+            elif (verb == "spawn"):
+                if (noun == "monsters"):
+                    GW.monster_spawn()
+                    response = "Monsters spawn"
         # the text box understand three commands
         # the text box understands four word commands
         elif (len(words) == 4):
@@ -176,7 +184,6 @@ class Screen(Frame):
                             self.PL5L['text'] = str(p5)
                         response = "Player Health Changed"
                         #HealthDisplay(number1, players[number1 - 1])
-                        
         # the text box understand six words
         elif (len(words) == 6):
             verb = words[0]
@@ -243,10 +250,10 @@ class Screen(Frame):
             number_of_monsters = randint(4,5)
         monster = random.choice(Monster_Dictionary.keys())
         GW.MA['text'] = "Number of Monsters: {} Name of Monster : {}".format(number_of_monsters,monster)
-        GW.Mstats['text'] = "Monster's sheet reference [ Stats, Challenge Rating number, Experience points, Armor Class, Hp, Specs, Actions]"
+        GW.Mstats['text'] = "Monster's sheet reference [ Stats, Challenge Rating number,\n"
+        GW.Mstats['text'] += "Experience points, Armor Class, Hp, Specs, Actions]\n"
         GW.Mstats['text'] += "Monster's sheet {}".format(Monster_Dictionary[monster])
 
-        
 #IMPORTANT DO NOT MESS WITH THIS
 diceVals = [0, 4, 6, 8, 10, 12, 20]
 
