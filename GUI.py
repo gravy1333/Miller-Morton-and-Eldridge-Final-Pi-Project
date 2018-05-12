@@ -119,6 +119,7 @@ class Screen(Frame):
         if (len(words) == 2):
             verb = words[0]
             noun = words[1]
+            response = " I don't understand try 'valid commands' to view vaild commands."
             if (verb == "valid"):
                 if (noun == "commands"):
                     t = "To set health type 'set, player, [the player #], health, [player's health]"
