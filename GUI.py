@@ -117,10 +117,8 @@ class Screen(Frame):
             noun = words[1]
             if (verb == "valid"):
                 if (noun == "commands"):
-                    t = "To set health type 'set, player, [the player #], health, [player's health]"
-                    t += "\n"
-                    t += "To attack a player type 'attack, player, [the player #], \n\t[the amount of damage]"
-                    t += "\n"
+                    t = "To set health type 'set, player, [the player #], health, [player's health]\n"
+                    t += "To attack a player type 'attack, player, [the player #], \n\t[the amount of damage]\n"
                     t += "To st the max health type 'set, max, health, player, \n\t[the player #], [the max health]"
                     response = t
         # the text box understands four word commands
@@ -229,7 +227,7 @@ class Screen(Frame):
         die = diceVals[randint(1, 6)]
         self.roll(die)
 
-    def monster_spawn(self, event):
+    def monster_spawn(self):
         party_size = int(GW.player_input.get())
         GW.player_input.delete(0, END)
         if party_size == 1:
@@ -248,7 +246,6 @@ class Screen(Frame):
         GW.MA['text'] = "Number of Monsters: {} Name of Monster : {}".format(number_of_monsters,monster)
         GW.Mstats['text'] = "Monster's sheet reference [ Stats, Challenge Rating number, Experience points, Armor Class, Hp, Specs, Actions]"
         GW.Mstats['text'] += "Monster's sheet {}".format(Monster_Dictionary[monster])
-        GW.player_input.bind("<Return>", GW.text_process)
         
 #IMPORTANT DO NOT MESS WITH THIS
 diceVals = [0, 4, 6, 8, 10, 12, 20]
