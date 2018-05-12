@@ -4,7 +4,6 @@ from random import randint
 from player import *
 from monsters import *
 
-
 class Screen(Frame):
     def __init__(self, master):
         Frame.__init__(self, master)
