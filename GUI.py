@@ -16,6 +16,8 @@ class Screen(Frame):
         master.rowconfigure(6, weight=0)
         master.rowconfigure(7, weight=1)
         self.grid(sticky='news')
+        self.grid_propagate(0)
+        self.pack_propagate(0)
 
     def setGUI(self):
         #player health
@@ -103,8 +105,6 @@ class Screen(Frame):
         self.d12['command'] = lambda val = 12 : self.roll(12)
         self.d20['command'] = lambda val = 20 : self.roll(20)
         self.dRand.bind('<7>', self.randRoll)
-
-        self.PL1L.grid_propagate(0)
 
     def text_process(self, event):
         action = GW.player_input.get()
