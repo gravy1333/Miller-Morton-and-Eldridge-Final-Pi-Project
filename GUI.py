@@ -256,6 +256,10 @@ p4 = Player()
 p5 = Player()
 players = [p1, p2, p3, p4, p5]
 
+for item in players:
+    #HealthDisplay(item+1, players[item])
+    pass
+
 m1 = Monster()
 m2 = Monster()
 m3 = Monster()
@@ -274,3 +278,7 @@ GW = Screen(window)
 GW.play()
 
 window.mainloop()
+
+for element in LED:
+    LED[element].stop()
+GPIO.cleanup()
