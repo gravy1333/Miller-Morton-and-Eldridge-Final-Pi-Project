@@ -19,6 +19,14 @@ class Player(object):
 
     @currentH.setter
     def currentH(self, val):
+        if (abs(val) > self.currentH):
+            self._currentH = 0
+
+        elif (val >= self.maxH):
+            self._currentH = self.maxH
+            
+        else:
+            self._currentH += val
         if (val <= 0):
             self._currentH = 0
         elif (val >= self.maxH):

@@ -185,7 +185,6 @@ class Screen(Frame):
                             self.PL5L['text'] = str(p5)
                         response = "Player Health Changed"
                         #HealthDisplay(number1, players[number1 - 1])
-                        
         # the text box understand six words
         elif (len(words) == 6):
             verb = words[0]
@@ -256,7 +255,6 @@ class Screen(Frame):
         GW.Mstats['text'] += "Experience points, Armor Class, Hp, Specs, Actions]\n"
         GW.Mstats['text'] += "Monster's sheet {}".format(Monster_Dictionary[monster])
 
-        
 #IMPORTANT DO NOT MESS WITH THIS
 diceVals = [0, 4, 6, 8, 10, 12, 20]
 
