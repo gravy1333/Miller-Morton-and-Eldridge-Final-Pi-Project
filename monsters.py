@@ -39,12 +39,11 @@ Monster_Dictionary = {
     "Harpy":["STR 12(+1) DEX 13(+1) CON 12(+1) INT 7(-2) WIS 10(+0) CHA 13(+1)",1,200,11,38,"Speed 20ft fly 40ft Senses passive Perception 10 Languages Common","1d20+3 2d4+1 1d20+3 1d4+1"],
     }
 
-class Monster():
-    def __init__(self, maxH = 10):
+class Monster(object):
+    def __init__(self, val=10):
         #temp is here to fix player instanciation issue
-        self.tempH = maxH
-        self.currentH = maxH
-        self.maxH = maxH
+        self.maxH = val
+        self.currentH = val
 
     @property
     def maxH(self):
@@ -61,16 +60,15 @@ class Monster():
 
     @currentH.setter
     def currentH(self, val):
-        if (self.tempH + val < 0):
+        if (val <= 0):
             self._currentH = 0
-            self.tempH = 0
-
-        elif (self.tempH + val >= self.maxH):
+        elif (val >= self.maxH):
             self._currentH = self.maxH
-            self.tempH = self.maxH
         else:
-            self._currentH += val
-            self.tempH += val
+            self._currentH = val
+
+    def getHealthPercent(self):
+        return (float(self.currentH) / self.maxH) * 100
 
     def __str__(self):
         return "{}/{}".format(self.currentH, self.maxH)
