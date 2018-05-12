@@ -134,16 +134,16 @@ class Screen(Frame):
                     if (number1 == 1):
                         p1.currentH += -number2
                         self.PL1L['text'] = str(p1)
-                    elif (number == 2):
-                        p2.currentH += -number2
+                    elif (number1 == 2):
+                        p2.currentH -= number2
                         self.PL2L['text'] = str(p2)
-                    elif (number == 3):
-                        p3.currentH += -number2
+                    elif (number1 == 3):
+                        p3.currentH -= number2
                         self.PL3L['text'] = str(p3)
-                    elif (number == 4):
+                    elif (number1 == 4):
                         p4.currentH -= number2
                         self.PL4L['text'] = str(p4)
-                    elif (number == 5):
+                    elif (number1 == 5):
                         p5.currentH -= number2
                         self.PL5L['text'] = str(p5)
                     response = "Player Health Changed"
@@ -177,7 +177,7 @@ class Screen(Frame):
                             self.PL5L['text'] = str(p5)
                         response = "Player Health Changed"
                         #HealthDisplay(number1, players[number1 - 1])
-                              
+                        
         # the text box understand six words
         elif (len(words) == 6):
             verb = words[0]
@@ -195,28 +195,24 @@ class Screen(Frame):
                                 p1.maxH = number2
                                 p1.currentH = number2
                                 self.PL1L['text'] = str(p1)
-                                response = "Changed"
                             elif (number1 == 2):
                                 p2.maxH = number2
                                 p2.currentH = number2
                                 self.PL2L['text'] = str(p2)
-                                response = "Changed"
+                                
                             elif (number1 == 3):
                                 p3.maxH = number2
                                 p3.currentH = number2
                                 self.PL3L['text'] = str(p3)
-                                response = "Changed"
                             elif (number1 == 4):
                                 p4.maxH = number2
                                 p4.currentH = number2
                                 self.PL4L['text'] = str(p4)
-                                response = "Changed"
                             elif (number1 == 5):
                                 p5.maxH = number2
                                 p5.currentH = number2
                                 self.PL5L['text'] = str(p5)
-                                response = "Changed"
-                            
+                            response = "Player Health Changed"
         else:
             response = " I don't understand try 'valid commands' to view vaild commands."
         GW.out['text'] = "{}".format(response)
@@ -280,11 +276,9 @@ GW = Screen(window)
 GW.play()
 
 window.mainloop()
-<<<<<<< HEAD
+
 '''
 for element in LED:
     LED[element].stop()
 GPIO.cleanup()
 '''
-=======
->>>>>>> 963f1713e2bf53e43005db08b3712feb69a6f961
