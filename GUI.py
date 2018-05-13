@@ -53,7 +53,7 @@ class Screen(Frame):
         self.PLH.columnconfigure(1, weight=1)
 
         #Out box 
-        self.out = Label(window, text='(Enter in input text bar)\nHow big is your party: ', \
+        self.out = Label(window, text='(Enter in input text bar)\nHow big is your party \nmembers #', \
                          anchor='nw', relief='sunken', justify='left', width=WIDTH/2, \
                          wraplength=WIDTH/2 -5, height=6)
         self.out.grid(row=4, column=0, rowspan=2, columnspan=4, sticky='news')
@@ -113,11 +113,11 @@ class Screen(Frame):
         action = action.lower()
         words = action.split()
         GW.player_input.delete(0, END)
+        response = " I don't understand try 'valid commands' to view vaild commands."
         # the text box understands two commands
         if (len(words) == 2):
             verb = words[0]
             noun = words[1]
-            response = " I don't understand try 'valid commands' to view vaild commands."
             if (verb == "valid"):
                 if (noun == "commands"):
                     t = "To set health type 'set, player, [the player #], health, [player's health]\n"
@@ -140,7 +140,6 @@ class Screen(Frame):
             noun = words[1]
             number1 = int(words[2])
             number2 = int(words[3])
-            response = " I don't understand try 'valid commands' to view vaild commands."
             if (verb == "attack"):
                 if (noun == "player"):
                     if (number1 == 1):
@@ -168,7 +167,6 @@ class Screen(Frame):
             number1 = int(words[2])
             noun2 = words[3]
             number2 = int(words[4])
-            response = " I don't understand try 'valid commands' to view vaild commands."
             if (verb == "set"):
                 if noun == "player":
                     if noun2 == "health":
@@ -197,7 +195,6 @@ class Screen(Frame):
             noun3 = words[3]
             number1 = int(words[4])
             number2 = int(words[5])
-            response = " I don't understand try 'valid commands' to view vaild commands."
             if (verb == "set"):
                 if (noun == "max"):
                     if (noun2 == "health"):
@@ -224,8 +221,6 @@ class Screen(Frame):
                                 p5.currentH = number2
                                 self.PL5L['text'] = str(p5)
                             response = "Player Health Changed"
-        else:
-            response = " I don't understand try 'valid commands' to view vaild commands."
         GW.out['text'] = "{}".format(response)
 
         
