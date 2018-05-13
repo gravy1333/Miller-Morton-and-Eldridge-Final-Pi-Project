@@ -122,7 +122,7 @@ class Screen(Frame):
                 if (noun == "commands"):
                     t = "To set health type 'set, player, [the player #], health, [player's health]\n"
                     t += "To attack a player type 'attack, player, [the player #], [the amount of damage]\n"
-                    t += "To st the max health type 'set, max, health, player, [the player #], [the max health]\n"
+                    t += "To set the max health type 'set, max, health, player, [the player #], [the max health]\n"
                     t += "To set members type ' members, [# of members]\n"
                     t += "To spawn monsters type ' spawn, monsters'"
                     response = t
