@@ -15,10 +15,11 @@ class Screen(Frame):
         master.rowconfigure(6, weight=0)
         master.rowconfigure(7, weight=1)
         self.grid(sticky='news')
+        window.grid_propagate(0)
 
     def setGUI(self):
         #player health
-        self.PLH = Label(window, bg='white')
+        self.PLH = Label(window, bg='white', width=WIDTH/2)
         self.PLH.grid(row=0, column=0, rowspan=3, columnspan=4, sticky='news')
         
         self.PL1N = Label(self.PLH, text='player 1', bg='white', width=WIDTH/3)
@@ -52,15 +53,19 @@ class Screen(Frame):
         self.PLH.columnconfigure(1, weight=1)
 
         #Out box 
-        self.out = Label(window, text='(Enter in input text bar)\nHow big is your party: ', anchor='nw', relief='sunken', justify='left', width=WIDTH/2)
+        self.out = Label(window, text='(Enter in input text bar)\nHow big is your party: ', \
+                         anchor='nw', relief='sunken', justify='left', width=WIDTH/2, \
+                         wraplength=WIDTH/2 -5, height=6)
         self.out.grid(row=4, column=0, rowspan=2, columnspan=4, sticky='news')
 
         #monster stats
-        self.MA = Label(window, text='Awaiting Battle', anchor='nw', relief='sunken', justify='left', width=WIDTH/2, wraplength = WIDTH/2 - 5)
+        self.MA = Label(window, text='Awaiting Battle', anchor='nw', relief='sunken', \
+                        justify='left', width=WIDTH/2, wraplength=WIDTH/2 -5)
         self.MA.grid(row=0, column=4, rowspan=3, columnspan=4, sticky='news')
 
         #monster actions
-        self.Mstats = Label(window, text='Moster Actions', anchor='nw', relief='sunken', justify='left', width=WIDTH/2, wraplength = WIDTH/2 - 5)
+        self.Mstats = Label(window, text='Moster Actions', anchor='nw', relief='sunken', \
+                            justify='left', width=WIDTH/2, wraplength = WIDTH/2 - 5)
         self.Mstats.grid(row=4, column=4, rowspan=2, columnspan=4, sticky='news')
 
         #input bar
@@ -70,29 +75,29 @@ class Screen(Frame):
         GW.player_input.focus()
         
         #dice buttons
-        self.RDis = Label(window, text='00', bg='white')
+        self.RDis = Label(window, text='00', bg='white', width=WIDTH/8)
         self.RDis.grid(row=7, column=7, sticky='news')
         
-        self.d4 = Button(window, bg='white', text='d4', width=1)
+        self.d4 = Button(window, bg='white', text='d4', width=WIDTH/8)
         self.d4.grid(row=7, column=0, sticky='news')
     
-        self.d6 = Button(window, bg='white', text='d6', width=1)
+        self.d6 = Button(window, bg='white', text='d6', width=WIDTH/8)
         self.d6.grid(row=7, column=1, sticky='news')
         
-        self.d8 = Button(window, bg='white', text='d8', width=1)
+        self.d8 = Button(window, bg='white', text='d8', width=WIDTH/8)
         self.d8.grid(row=7, column=2, sticky='news')
         
-        self.d10 = Button(window, bg='white', text='d10', width=1)
+        self.d10 = Button(window, bg='white', text='d10', width=WIDTH/8)
         self.d10.grid(row=7, column=3, sticky='news')
         
-        self.d12 = Button(window, bg='white', text='d12', width=1)
+        self.d12 = Button(window, bg='white', text='d12', width=WIDTH/8)
         self.d12.grid(row=7, column=4, sticky='news')
         
-        self.d20 = Button(window, bg='white', text='d20', width=1)
+        self.d20 = Button(window, bg='white', text='d20', width=WIDTH/8)
         self.d20.grid(row=7, column=5, sticky='news')
 
         self.dRand = Button(window, bg='white', text='Random\nDice', \
-                              width=1, command=self.randRoll)
+                              width=WIDTH/8, command=self.randRoll)
         self.dRand.grid(row=7, column=6, sticky='news')
 
         self.d4['command'] = lambda val = 4 : self.roll(4)
@@ -116,8 +121,8 @@ class Screen(Frame):
             if (verb == "valid"):
                 if (noun == "commands"):
                     t = "To set health type 'set, player, [the player #], health, [player's health]\n"
-                    t += "To attack a player type 'attack, player, [the player #], \n\t[the amount of damage]\n"
-                    t += "To st the max health type 'set, max, health, player, \n\t[the player #], [the max health]\n"
+                    t += "To attack a player type 'attack, player, [the player #], [the amount of damage]\n"
+                    t += "To st the max health type 'set, max, health, player, [the player #], [the max health]\n"
                     t += "To set members type ' members, [# of members]\n"
                     t += "To spawn monsters type ' spawn, monsters'"
                     response = t
@@ -229,7 +234,7 @@ class Screen(Frame):
 
     def roll(self, val):
         roll = randint(1, val)
-        self.RDis['text'] = [str(roll), "0" + str(roll)][roll < 10]
+        self.RDis['text'] = roll
         
     def randRoll(self):
         die = diceVals[randint(1, 6)]
