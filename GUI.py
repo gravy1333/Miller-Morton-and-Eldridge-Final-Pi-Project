@@ -170,16 +170,16 @@ class Screen(Frame):
                         if  number1 == 1:
                             p1.currentH = number2
                             self.PL1L['text'] = str(p1)
-                        elif number == 2:
+                        elif number1 == 2:
                             p2.currentH = number2
                             self.PL2L['text'] = str(p2)
-                        elif number == 3:
+                        elif number1 == 3:
                             p3.currentH = number2
                             self.PL3L['text'] = str(p3)
-                        elif number == 4:
+                        elif number1 == 4:
                             p4.currentH = number2
                             self.PL4L['text'] = str(p4)
-                        elif number == 5:
+                        elif number1 == 5:
                             p5.currentH = number2
                             self.PL5L['text'] = str(p5)
                         response = "Player Health Changed"
