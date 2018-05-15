@@ -1,8 +1,7 @@
 from Tkinter import *
 import random
 from random import randint
-#from Health_LED import *
-from player import *
+from Health_LED import *
 from monsters import *
 
 class Screen(Frame):
@@ -158,7 +157,7 @@ class Screen(Frame):
                         p5.currentH -= number2
                         self.PL5L['text'] = str(p5)
                     response = "Player Health Changed"
-                    #HealthDisplay(number1, players[number1 - 1])
+                    HealthDisplay(number1, players[number1 - 1])
 
         # the text box understands five word commands
         elif (len(words) == 5):
@@ -186,7 +185,7 @@ class Screen(Frame):
                             p5.currentH = number2
                             self.PL5L['text'] = str(p5)
                         response = "Player Health Changed"
-                        #HealthDisplay(number1, players[number1 - 1])
+                        HealthDisplay(number1, players[number1 - 1])
                         
         # the text box understand six words
         elif (len(words) == 6):
@@ -222,7 +221,7 @@ class Screen(Frame):
                                 p5.currentH = number2
                                 self.PL5L['text'] = str(p5)
                             response = "Player Health Changed"
-                            #HealthDisplay(number1, players[number1 - 1])
+                            HealthDisplay(number1, players[number1 - 1])
                             
         GW.out['text'] = "{}".format(response)
 
@@ -267,10 +266,10 @@ p4 = Player()
 p5 = Player()
 players = [p1, p2, p3, p4, p5]
 
-'''
+
 for index in range(0, len(players)):
     HealthDisplay(index + 1, players[index])
-'''
+
 
 m1 = Monster()
 m2 = Monster()
@@ -291,8 +290,7 @@ GW.play()
 
 window.mainloop()
 
-'''
+
 for element in LED:
     LED[element].stop()
 GPIO.cleanup()
-'''
