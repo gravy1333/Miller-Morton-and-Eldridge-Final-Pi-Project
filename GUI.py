@@ -1,7 +1,8 @@
-from Tkinter import *
+from tkinter import *
 import random
 from random import randint
-from Health_LED import *
+#from Health_LED import *
+from player import *
 from monsters import *
 
 class Screen(Frame):
@@ -18,32 +19,32 @@ class Screen(Frame):
 
     def setGUI(self):
         #player health
-        self.PLH = Label(window, bg='white', width=WIDTH/2)
+        self.PLH = Label(window, bg='white', width=int(WIDTH/2))
         self.PLH.grid(row=0, column=0, rowspan=3, columnspan=4, sticky='news')
         
-        self.PL1N = Label(self.PLH, text='player 1', bg='white', width=WIDTH/3)
+        self.PL1N = Label(self.PLH, text='player 1', bg='white', width=int(WIDTH/3))
         self.PL1N.grid(row=0, column=0, sticky='news')
-        self.PL1L = Label(self.PLH, text=str(p1), fg='red', bg='black', width=WIDTH/6)
+        self.PL1L = Label(self.PLH, text=str(p1), fg='red', bg='black', width=int(WIDTH/6))
         self.PL1L.grid(row=0, column=1, sticky='news')
 
-        self.PL2N = Label(self.PLH, text='player 2', bg='white', width=WIDTH/3)
+        self.PL2N = Label(self.PLH, text='player 2', bg='white', width=int(WIDTH/3))
         self.PL2N.grid(row=1, column=0, sticky='news')
-        self.PL2L = Label(self.PLH, text=str(p2), fg='red', bg='black', width=WIDTH/6)
+        self.PL2L = Label(self.PLH, text=str(p2), fg='red', bg='black', width=int(WIDTH/6))
         self.PL2L.grid(row=1, column=1, sticky='news')
 
-        self.PL3N = Label(self.PLH, text='player 3', bg='white', width=WIDTH/3)
+        self.PL3N = Label(self.PLH, text='player 3', bg='white', width=int(WIDTH/3))
         self.PL3N.grid(row=2, column=0, sticky='news')
-        self.PL3L = Label(self.PLH, text=str(p3), fg='red', bg='black', width=WIDTH/6)
+        self.PL3L = Label(self.PLH, text=str(p3), fg='red', bg='black', width=int(WIDTH/6))
         self.PL3L.grid(row=2, column=1, sticky='news')
 
-        self.PL4N = Label(self.PLH, text='player 4', bg='white', width=WIDTH/3)
+        self.PL4N = Label(self.PLH, text='player 4', bg='white', width=int(WIDTH/3))
         self.PL4N.grid(row=3, column=0, sticky='news')
-        self.PL4L = Label(self.PLH, text=str(p4), fg='red', bg='black', width=WIDTH/6)
+        self.PL4L = Label(self.PLH, text=str(p4), fg='red', bg='black', width=int(WIDTH/6))
         self.PL4L.grid(row=3, column=1, sticky='news')
 
-        self.PL5N = Label(self.PLH, text='player 5', bg='white', width=WIDTH/3)
+        self.PL5N = Label(self.PLH, text='player 5', bg='white', width=int(WIDTH/3))
         self.PL5N.grid(row=4, column=0, sticky='news')
-        self.PL5L = Label(self.PLH, text=str(p5), fg='red', bg='black', width=WIDTH/6)
+        self.PL5L = Label(self.PLH, text=str(p5), fg='red', bg='black', width=int(WIDTH/6))
         self.PL5L.grid(row=4, column=1, sticky='news')
 
         for r in range(5):
@@ -53,18 +54,18 @@ class Screen(Frame):
 
         #Out box 
         self.out = Label(window, text='(Enter in input text bar)\nHow big is your party \nmembers #', \
-                         anchor='nw', relief='sunken', justify='left', width=WIDTH/2, \
-                         wraplength=WIDTH/2 -5, height=6)
+                         anchor='nw', relief='sunken', justify='left', width=int(WIDTH/2), \
+                         wraplength=int(WIDTH/2) -5, height=6)
         self.out.grid(row=4, column=0, rowspan=2, columnspan=4, sticky='news')
 
         #monster stats
         self.MA = Label(window, text='Awaiting Battle', anchor='nw', relief='sunken', \
-                        justify='left', width=WIDTH/2, wraplength=WIDTH/2 -5)
+                        justify='left', width=int(WIDTH/2), wraplength=int(WIDTH/2) -5)
         self.MA.grid(row=0, column=4, rowspan=3, columnspan=4, sticky='news')
 
         #monster actions
         self.Mstats = Label(window, text='Moster Actions', anchor='nw', relief='sunken', \
-                            justify='left', width=WIDTH/2, wraplength = WIDTH/2 - 5)
+                            justify='left', width=int(WIDTH/2), wraplength = int(WIDTH/2) - 5)
         self.Mstats.grid(row=4, column=4, rowspan=2, columnspan=4, sticky='news')
 
         #input bar
@@ -74,29 +75,29 @@ class Screen(Frame):
         GW.player_input.focus()
         
         #dice buttons
-        self.RDis = Label(window, text='00', bg='white', width=WIDTH/8)
+        self.RDis = Label(window, text='00', bg='white', width=int(WIDTH/8))
         self.RDis.grid(row=7, column=7, sticky='news')
         
-        self.d4 = Button(window, bg='white', text='d4', width=WIDTH/8)
+        self.d4 = Button(window, bg='white', text='d4', width=int(WIDTH/8))
         self.d4.grid(row=7, column=0, sticky='news')
     
-        self.d6 = Button(window, bg='white', text='d6', width=WIDTH/8)
+        self.d6 = Button(window, bg='white', text='d6', width=int(WIDTH/8))
         self.d6.grid(row=7, column=1, sticky='news')
         
-        self.d8 = Button(window, bg='white', text='d8', width=WIDTH/8)
+        self.d8 = Button(window, bg='white', text='d8', width=int(WIDTH/8))
         self.d8.grid(row=7, column=2, sticky='news')
         
-        self.d10 = Button(window, bg='white', text='d10', width=WIDTH/8)
+        self.d10 = Button(window, bg='white', text='d10', width=int(WIDTH/8))
         self.d10.grid(row=7, column=3, sticky='news')
         
-        self.d12 = Button(window, bg='white', text='d12', width=WIDTH/8)
+        self.d12 = Button(window, bg='white', text='d12', width=int(WIDTH/8))
         self.d12.grid(row=7, column=4, sticky='news')
         
-        self.d20 = Button(window, bg='white', text='d20', width=WIDTH/8)
+        self.d20 = Button(window, bg='white', text='d20', width=int(WIDTH/8))
         self.d20.grid(row=7, column=5, sticky='news')
 
         self.dRand = Button(window, bg='white', text='Random\nDice', \
-                              width=WIDTH/8, command=self.randRoll)
+                              width=int(WIDTH/8), command=self.randRoll)
         self.dRand.grid(row=7, column=6, sticky='news')
 
         self.d4['command'] = lambda val = 4 : self.roll(4)
@@ -157,7 +158,7 @@ class Screen(Frame):
                         p5.currentH -= number2
                         self.PL5L['text'] = str(p5)
                     response = "Player Health Changed"
-                    HealthDisplay(number1, players[number1 - 1])
+                    #HealthDisplay(number1, players[number1 - 1])
 
         # the text box understands five word commands
         elif (len(words) == 5):
@@ -185,7 +186,7 @@ class Screen(Frame):
                             p5.currentH = number2
                             self.PL5L['text'] = str(p5)
                         response = "Player Health Changed"
-                        HealthDisplay(number1, players[number1 - 1])
+                        #HealthDisplay(number1, players[number1 - 1])
                         
         # the text box understand six words
         elif (len(words) == 6):
@@ -221,7 +222,7 @@ class Screen(Frame):
                                 p5.currentH = number2
                                 self.PL5L['text'] = str(p5)
                             response = "Player Health Changed"
-                            HealthDisplay(number1, players[number1 - 1])
+                            #HealthDisplay(number1, players[number1 - 1])
                             
         GW.out['text'] = "{}".format(response)
 
@@ -250,7 +251,7 @@ class Screen(Frame):
             number_of_monsters = randint(4,5)
         else:
             number_of_monsters = randint(4,5)
-        monster = random.choice(Monster_Dictionary.keys())
+        monster = random.choice(list(Monster_Dictionary))
         GW.MA['text'] = "Number of Monsters: {} Name of Monster : {}".format(number_of_monsters,monster)
         GW.Mstats['text'] = "Monster's sheet reference [ Stats, Challenge Rating number,\n"
         GW.Mstats['text'] += "Experience points, Armor Class, Hp, Specs, Actions]\n"
@@ -267,8 +268,8 @@ p5 = Player()
 players = [p1, p2, p3, p4, p5]
 
 
-for index in range(0, len(players)):
-    HealthDisplay(index + 1, players[index])
+#for index in range(0, len(players)):
+    #HealthDisplay(index + 1, players[index])
 
 
 m1 = Monster()
@@ -291,6 +292,6 @@ GW.play()
 window.mainloop()
 
 
-for element in LED:
+""" for element in LED:
     LED[element].stop()
-GPIO.cleanup()
+GPIO.cleanup() """
